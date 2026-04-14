@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mascotty - Pet Health Tracker / Haustier Gesundheit / Salud Mascotas / Santé Animaux</title>
+  <title>Mascotty - Pet Health Tracker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
@@ -21,6 +21,7 @@
     a.button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6); }
     .hidden { display: none; }
     footer { text-align: center; padding: 20px; font-size: 0.9em; color: #555; border-top: 1px solid #ccc; margin-top: 40px; }
+    footer .disclaimer { font-size: 0.8em; color: #999; max-width: 700px; margin: 12px auto 0; line-height: 1.5; }
     select { padding: 8px 12px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.2); color: white; font-weight: 600; cursor: pointer; }
     select option { color: #333; }
     .faq-item { margin-bottom: 25px; background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #667eea; }
@@ -40,53 +41,40 @@
     .hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(118,75,162,0.1) 100%); border-radius: 10px; margin-bottom: 40px; }
     .hero h2 { font-size: 2.5em; margin-bottom: 20px; }
     .hero p { font-size: 1.2em; color: #555; max-width: 700px; margin: 0 auto 30px; }
-    .pricing-tier { display: inline-block; padding: 30px; margin: 20px 10px; border-radius: 15px; min-width: 280px; vertical-align: top; }
-    .pricing-tier.free { background: #f8f9fa; border: 2px solid #4caf50; }
-    .pricing-tier.pro { background: linear-gradient(135deg, rgba(255,152,0,0.1) 0%, rgba(255,152,0,0.15) 100%); border: 3px solid #ff9800; box-shadow: 0 8px 20px rgba(255,152,0,0.3); }
-    .pricing-tier h4 { margin-top: 0; font-size: 1.8em; }
-    .pricing-tier .price { font-size: 2.5em; font-weight: bold; margin: 20px 0; }
-    .pricing-tier ul { text-align: left; margin: 20px 0; padding-left: 20px; }
-    .pricing-tier ul li { margin-bottom: 12px; }
+    .whats-new { background: linear-gradient(135deg, rgba(102,126,234,0.08) 0%, rgba(118,75,162,0.08) 100%); border: 1px solid #667eea; padding: 20px 25px; border-radius: 10px; margin: 30px 0; }
+    .whats-new h3 { color: #667eea; margin-top: 0; font-size: 1.2em; }
+    .whats-new ul { margin: 10px 0 0 18px; line-height: 1.9; }
   </style>
-  
-<script>
-  function switchLanguage(lang) {
-    document.querySelectorAll('.lang').forEach(el => el.classList.add('hidden'));
-    document.querySelectorAll('.lang-' + lang).forEach(el => el.classList.remove('hidden'));
-    document.getElementById('lang-selector').value = lang;
-  }
 
-  function showSection(section) {
-    document.querySelectorAll('.section').forEach(el => el.classList.add('hidden'));
-    const target = document.getElementById(section);
-    if (target) target.classList.remove('hidden');
-  }
-
-  function getQueryParam(param) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
-  }
-
-  window.onload = function() {
-    const hash = window.location.hash.substring(1);
-    const lang = getQueryParam('lang');
-
-    if (hash === 'privacy') showSection('privacy');
-    else if (hash === 'support') showSection('support');
-    else showSection('home');
-    
-    const validLangs = ['en', 'de', 'es', 'fr'];
-    switchLanguage(validLangs.includes(lang) ? lang : 'en');
-  }
-</script>
-
+  <script>
+    function switchLanguage(lang) {
+      document.querySelectorAll('.lang').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.lang-' + lang).forEach(el => el.classList.remove('hidden'));
+      document.getElementById('lang-selector').value = lang;
+    }
+    function showSection(section) {
+      document.querySelectorAll('.section').forEach(el => el.classList.add('hidden'));
+      const target = document.getElementById(section);
+      if (target) target.classList.remove('hidden');
+    }
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+    window.onload = function() {
+      const hash = window.location.hash.substring(1);
+      const lang = getQueryParam('lang');
+      if (hash === 'privacy') showSection('privacy');
+      else if (hash === 'support') showSection('support');
+      else showSection('home');
+      const validLangs = ['en', 'de', 'es', 'fr'];
+      switchLanguage(validLangs.includes(lang) ? lang : 'en');
+    }
+  </script>
 </head>
 <body>
   <header>
-    <h1>
-      <span>🐾</span>
-      Mascotty
-    </h1>
+    <h1><span>🐾</span>Mascotty</h1>
     <nav>
       <a href="#home" onclick="showSection('home')">Home</a>
       <a href="#support" onclick="showSection('support')">Support</a>
@@ -104,10 +92,10 @@
 
   <div class="container">
 
-    <!-- HOME SECTION -->
+    <!-- ═══════════════════════════════════════════════════════ HOME -->
     <div id="home" class="section">
 
-      <!-- English -->
+      <!-- ── English ── -->
       <div class="lang lang-en">
         <div class="hero">
           <h2>🐾 Your Pet's Health Companion</h2>
@@ -115,13 +103,25 @@
           <a href="https://apps.apple.com/app/id6756354393" class="button">Download on the App Store</a>
         </div>
 
+        <div class="whats-new">
+          <h3>🆕 What's New in v1.7</h3>
+          <ul>
+            <li>Swipe right on any reminder to mark it as taken instantly</li>
+            <li>App icon badge now shows overdue reminder count</li>
+            <li>Breathing chart shows normal resting range for your pet's species</li>
+            <li>Medication adherence % card in medication detail <strong>(Pro)</strong></li>
+            <li>Export breathing &amp; weight data as CSV <strong>(Pro)</strong></li>
+            <li>Bug fixes and stability improvements</li>
+          </ul>
+        </div>
+
         <h2>Complete Pet Care Management</h2>
-        <p>Mascotty helps you track medications, care tasks, vet visits, and health records for all your pets in one beautiful, easy-to-use app.</p>
-        
+        <p>Mascotty helps you track medications, care tasks, vet visits, breathing, and health records for all your pets in one beautiful, easy-to-use app.</p>
+
         <div class="pro-box">
           <h3>🎉 Start Free, Upgrade When You're Ready</h3>
-          <p><strong>Free:</strong> 1 pet, 2 care tasks, unlimited medications & weight tracking</p>
-          <p><strong>Pro (One-Time Purchase):</strong> Unlimited pets, unlimited care tasks, vet visit tracking & pet sitter reports</p>
+          <p><strong>Free:</strong> 1 pet, 2 care tasks, unlimited medications, weight &amp; breathing tracking</p>
+          <p><strong>Pro (One-Time Purchase):</strong> Unlimited pets, unlimited care tasks, vet visit tracking, pet sitter reports, adherence analytics &amp; CSV export</p>
           <p style="margin-top: 20px;"><em>No subscriptions. Pay once, own forever.</em></p>
         </div>
 
@@ -130,7 +130,7 @@
           <div class="feature-card">
             <span class="free-badge">FREE</span>
             <h4>💊 Medication Tracking</h4>
-            <p>Never miss a dose with smart reminders. Track dosages, instructions, and complete medication history.</p>
+            <p>Never miss a dose with smart reminders. Track dosages, instructions, and complete medication history. Swipe to mark as taken instantly.</p>
           </div>
           <div class="feature-card">
             <span class="free-badge">FREE</span>
@@ -144,13 +144,13 @@
           </div>
           <div class="feature-card">
             <span class="free-badge">FREE</span>
-            <h4>📝 Health Records</h4>
-            <p>Maintain comprehensive health history with notes and observations.</p>
+            <h4>🫁 Breathing Log</h4>
+            <p>Log resting breathing rates and visualize trends over time. Includes species-specific normal range bands on the chart.</p>
           </div>
           <div class="feature-card">
             <span class="free-badge">FREE</span>
-            <h4>🐕 Single Pet Management</h4>
-            <p>Track one pet with complete features including photos, medications, and care tasks.</p>
+            <h4>📝 Health Records</h4>
+            <p>Maintain comprehensive health history with notes and observations.</p>
           </div>
           <div class="feature-card">
             <span class="free-badge">FREE</span>
@@ -181,19 +181,33 @@
             <h4>✂️ Unlimited Care Tasks</h4>
             <p>Track unlimited grooming, nail trimming, ear cleaning, baths, and all care activities.</p>
           </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>📊 Medication Adherence</h4>
+            <p>See your pet's on-time dose percentage at a glance with a visual adherence card in each medication's detail view.</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>📤 CSV Data Export</h4>
+            <p>Export breathing and weight logs as CSV files to share with your vet or keep your own records.</p>
+          </div>
         </div>
 
         <h3>Key Features</h3>
         <ul>
           <li><strong>Smart Medication Reminders:</strong> Flexible scheduling with daily, weekly, or custom intervals</li>
+          <li><strong>Swipe to Mark Taken:</strong> Swipe right on any reminder for instant one-gesture logging</li>
+          <li><strong>Overdue Badge:</strong> App icon badge shows how many reminders need attention</li>
           <li><strong>Care Task Management:</strong> Track grooming, nail trimming, ear cleaning, and more</li>
+          <li><strong>Breathing Log:</strong> Monitor resting breathing rates with species normal range reference</li>
           <li><strong>Veterinary Appointments (Pro):</strong> Schedule visits, track history, add notes</li>
           <li><strong>Weight Tracking:</strong> Monitor trends with multiple unit support (kg, lb, g)</li>
-          <li><strong>Complete Health Records:</strong> Maintain comprehensive history for all pets</li>
+          <li><strong>Medication Adherence (Pro):</strong> On-time dose percentage per medication</li>
+          <li><strong>CSV Export (Pro):</strong> Export breathing and weight data for external use</li>
           <li><strong>Pet Sitter Reports (Pro):</strong> Export detailed care schedules with dates and times</li>
           <li><strong>Offline Ready:</strong> Works without internet connection</li>
-          <li><strong>Photos & Notes:</strong> Add photos and custom notes for each pet</li>
-          <li><strong>Multilingual:</strong> Available in English, German, Spanish, and French</li>
+          <li><strong>Photos &amp; Notes:</strong> Add photos and custom notes for each pet</li>
+          <li><strong>Multilingual:</strong> Available in English, German, Spanish, French, Italian, Korean, and Japanese</li>
         </ul>
 
         <div class="note">
@@ -204,16 +218,15 @@
         <ul>
           <li>Pet owners with multiple animals (Pro)</li>
           <li>Pets on regular medication schedules</li>
-          <li>Senior pets requiring special care</li>
+          <li>Senior pets requiring special care and breathing monitoring</li>
           <li>Puppies and kittens with vaccination schedules</li>
           <li>Pet parents who travel frequently (Pro)</li>
           <li>Anyone committed to responsible pet ownership</li>
         </ul>
-
-        <a href="https://apps.apple.com/app/id6756354393" class="button">Get Started Today - Free Download</a>
+        <a href="https://apps.apple.com/app/id6756354393" class="button">Get Started Today – Free Download</a>
       </div>
 
-      <!-- German -->
+      <!-- ── German ── -->
       <div class="lang lang-de hidden">
         <div class="hero">
           <h2>🐾 Der Gesundheitsbegleiter für Ihr Haustier</h2>
@@ -221,13 +234,25 @@
           <a href="https://apps.apple.com/app/id6756354393" class="button">Im App Store herunterladen</a>
         </div>
 
+        <div class="whats-new">
+          <h3>🆕 Neu in v1.7</h3>
+          <ul>
+            <li>Erinnerung nach rechts wischen, um sie sofort als eingenommen zu markieren</li>
+            <li>App-Symbol zeigt jetzt überfällige Erinnerungen als Badge</li>
+            <li>Atemfrequenz-Diagramm zeigt den Normalbereich der Tierart</li>
+            <li>Einnahmequote als Prozentanzeige in der Medikamenten-Detailansicht <strong>(Pro)</strong></li>
+            <li>Atem- &amp; Gewichtsdaten als CSV exportieren <strong>(Pro)</strong></li>
+            <li>Fehlerbehebungen und Stabilitätsverbesserungen</li>
+          </ul>
+        </div>
+
         <h2>Komplette Haustierpflege-Verwaltung</h2>
-        <p>Mascotty hilft Ihnen, Medikamente, Pflegeaufgaben, Tierarztbesuche und Gesundheitsunterlagen für alle Ihre Haustiere in einer schönen, benutzerfreundlichen App zu verfolgen.</p>
-        
+        <p>Mascotty hilft Ihnen, Medikamente, Pflegeaufgaben, Tierarztbesuche, Atemfrequenz und Gesundheitsunterlagen für alle Ihre Haustiere in einer schönen, benutzerfreundlichen App zu verfolgen.</p>
+
         <div class="pro-box">
           <h3>🎉 Kostenlos Starten, Upgraden Wenn Bereit</h3>
-          <p><strong>Kostenlos:</strong> 1 Haustier, 2 Pflegeaufgaben, unbegrenzte Medikamente & Gewichtsverfolgung</p>
-          <p><strong>Pro (Einmaliger Kauf):</strong> Unbegrenzte Haustiere, unbegrenzte Pflegeaufgaben, Tierarztbesuche & Tiersitter-Berichte</p>
+          <p><strong>Kostenlos:</strong> 1 Haustier, 2 Pflegeaufgaben, unbegrenzte Medikamente, Gewichts- &amp; Atemverfolgung</p>
+          <p><strong>Pro (Einmaliger Kauf):</strong> Unbegrenzte Haustiere, unbegrenzte Pflegeaufgaben, Tierarztbesuche, Tiersitter-Berichte, Einnahmeanalysen &amp; CSV-Export</p>
           <p style="margin-top: 20px;"><em>Keine Abonnements. Einmal zahlen, für immer besitzen.</em></p>
         </div>
 
@@ -236,7 +261,7 @@
           <div class="feature-card">
             <span class="free-badge">KOSTENLOS</span>
             <h4>💊 Medikationsverfolgung</h4>
-            <p>Verpassen Sie nie eine Dosis mit intelligenten Erinnerungen. Verfolgen Sie Dosierungen, Anweisungen und vollständige Medikationshistorie.</p>
+            <p>Verpassen Sie nie eine Dosis mit intelligenten Erinnerungen. Wischen Sie nach rechts, um sofort zu bestätigen.</p>
           </div>
           <div class="feature-card">
             <span class="free-badge">KOSTENLOS</span>
@@ -250,13 +275,13 @@
           </div>
           <div class="feature-card">
             <span class="free-badge">KOSTENLOS</span>
-            <h4>📝 Gesundheitsunterlagen</h4>
-            <p>Führen Sie umfassende Gesundheitshistorie mit Notizen und Beobachtungen.</p>
+            <h4>🫁 Atemfrequenz-Protokoll</h4>
+            <p>Atemfrequenz in Ruhe protokollieren und Trends visualisieren. Artspezifische Normalbereiche im Diagramm.</p>
           </div>
           <div class="feature-card">
             <span class="free-badge">KOSTENLOS</span>
-            <h4>🐕 Ein Haustier</h4>
-            <p>Verfolgen Sie ein Haustier mit allen Funktionen einschließlich Fotos, Medikamenten und Pflegeaufgaben.</p>
+            <h4>📝 Gesundheitsunterlagen</h4>
+            <p>Führen Sie umfassende Gesundheitshistorie mit Notizen und Beobachtungen.</p>
           </div>
           <div class="feature-card">
             <span class="free-badge">KOSTENLOS</span>
@@ -270,29 +295,38 @@
           <div class="feature-card pro">
             <span class="pro-badge">👑 PRO</span>
             <h4>🐕🐈🦜 Unbegrenzte Haustiere</h4>
-            <p>Verwalten Sie alle Ihre Haustiere in einer App. Hunde, Katzen, Vögel, Kaninchen und mehr—keine Grenzen!</p>
+            <p>Verwalten Sie alle Ihre Haustiere in einer App. Keine Grenzen!</p>
           </div>
           <div class="feature-card pro">
             <span class="pro-badge">👑 PRO</span>
             <h4>🩺 Tierarzttermin-Verfolgung</h4>
-            <p>Planen Sie Termine, verfolgen Sie Historie, protokollieren Sie Besuchsnotizen und erhalten Sie Erinnerungen.</p>
+            <p>Termine planen, Verlauf verfolgen, Besuchsnotizen protokollieren und Erinnerungen erhalten.</p>
           </div>
           <div class="feature-card pro">
             <span class="pro-badge">👑 PRO</span>
             <h4>📄 Tiersitter-Berichte</h4>
-            <p>Erstellen Sie sofort detaillierte Pflegeanweisungen. Exportieren Sie Zeitpläne. Perfekt für Urlaub!</p>
+            <p>Detaillierte Pflegeanweisungen sofort erstellen und exportieren. Perfekt für den Urlaub!</p>
           </div>
           <div class="feature-card pro">
             <span class="pro-badge">👑 PRO</span>
             <h4>✂️ Unbegrenzte Pflegeaufgaben</h4>
-            <p>Verfolgen Sie unbegrenzte Pflege, Krallenpflege, Ohrenreinigung, Bäder und alle Pflegeaktivitäten.</p>
+            <p>Alle Pflege-, Krallen- und Ohrenreinigungsaktivitäten unbegrenzt verfolgen.</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>📊 Einnahmequote</h4>
+            <p>Pünktliche Einnahmequote auf einen Blick in der Medikamenten-Detailansicht.</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>📤 CSV-Export</h4>
+            <p>Atem- und Gewichtsprotokolle als CSV exportieren, um sie mit dem Tierarzt zu teilen.</p>
           </div>
         </div>
-
-        <a href="https://apps.apple.com/app/id6756354393" class="button">Heute Starten - Kostenloser Download</a>
+        <a href="https://apps.apple.com/app/id6756354393" class="button">Heute Starten – Kostenloser Download</a>
       </div>
 
-      <!-- Spanish -->
+      <!-- ── Spanish ── -->
       <div class="lang lang-es hidden">
         <div class="hero">
           <h2>🐾 El Compañero de Salud de tu Mascota</h2>
@@ -300,13 +334,25 @@
           <a href="https://apps.apple.com/app/id6756354393" class="button">Descargar en el App Store</a>
         </div>
 
+        <div class="whats-new">
+          <h3>🆕 Novedades en v1.7</h3>
+          <ul>
+            <li>Desliza a la derecha en cualquier recordatorio para marcarlo como tomado al instante</li>
+            <li>El icono de la app muestra un badge con los recordatorios vencidos</li>
+            <li>El gráfico de respiración muestra el rango normal para la especie de tu mascota</li>
+            <li>Porcentaje de adherencia a la medicación en la vista de detalle <strong>(Pro)</strong></li>
+            <li>Exportar datos de respiración y peso como CSV <strong>(Pro)</strong></li>
+            <li>Correcciones de errores y mejoras de estabilidad</li>
+          </ul>
+        </div>
+
         <h2>Gestión Completa de Cuidado de Mascotas</h2>
-        <p>Mascotty te ayuda a rastrear medicamentos, tareas de cuidado, visitas veterinarias y registros de salud para todas tus mascotas en una aplicación hermosa y fácil de usar.</p>
-        
+        <p>Mascotty te ayuda a rastrear medicamentos, tareas de cuidado, visitas veterinarias, respiración y registros de salud para todas tus mascotas en una aplicación hermosa y fácil de usar.</p>
+
         <div class="pro-box">
           <h3>🎉 Comienza Gratis, Actualiza Cuando Estés Listo</h3>
-          <p><strong>Gratis:</strong> 1 mascota, 2 tareas de cuidado, medicamentos y seguimiento de peso ilimitados</p>
-          <p><strong>Pro (Compra Única):</strong> Mascotas ilimitadas, tareas de cuidado ilimitadas, visitas al veterinario e informes para cuidadores</p>
+          <p><strong>Gratis:</strong> 1 mascota, 2 tareas de cuidado, medicamentos, seguimiento de peso y respiración ilimitados</p>
+          <p><strong>Pro (Compra Única):</strong> Mascotas ilimitadas, tareas ilimitadas, visitas al veterinario, informes para cuidadores, adherencia y exportación CSV</p>
           <p style="margin-top: 20px;"><em>Sin suscripciones. Paga una vez, posee para siempre.</em></p>
         </div>
 
@@ -315,7 +361,7 @@
           <div class="feature-card">
             <span class="free-badge">GRATIS</span>
             <h4>💊 Seguimiento de Medicamentos</h4>
-            <p>Nunca pierdas una dosis con recordatorios inteligentes. Rastrea dosis, instrucciones e historial completo.</p>
+            <p>Nunca pierdas una dosis. Desliza a la derecha para marcar como tomado al instante.</p>
           </div>
           <div class="feature-card">
             <span class="free-badge">GRATIS</span>
@@ -329,13 +375,13 @@
           </div>
           <div class="feature-card">
             <span class="free-badge">GRATIS</span>
-            <h4>📝 Registros de Salud</h4>
-            <p>Mantén historial integral de salud con notas y observaciones.</p>
+            <h4>🫁 Registro de Respiración</h4>
+            <p>Registra la frecuencia respiratoria en reposo con rangos normales por especie en el gráfico.</p>
           </div>
           <div class="feature-card">
             <span class="free-badge">GRATIS</span>
-            <h4>🐕 Una Mascota</h4>
-            <p>Rastrea una mascota con todas las funciones incluidas fotos, medicamentos y tareas de cuidado.</p>
+            <h4>📝 Registros de Salud</h4>
+            <p>Mantén historial integral de salud con notas y observaciones.</p>
           </div>
           <div class="feature-card">
             <span class="free-badge">GRATIS</span>
@@ -349,43 +395,64 @@
           <div class="feature-card pro">
             <span class="pro-badge">👑 PRO</span>
             <h4>🐕🐈🦜 Mascotas Ilimitadas</h4>
-            <p>Gestiona todas tus mascotas en una app. Perros, gatos, pájaros, conejos y más—¡sin límites!</p>
+            <p>Gestiona todas tus mascotas en una app. ¡Sin límites!</p>
           </div>
           <div class="feature-card pro">
             <span class="pro-badge">👑 PRO</span>
             <h4>🩺 Seguimiento de Visitas Veterinarias</h4>
-            <p>Programa citas, rastrea historial, registra notas de visitas y recibe recordatorios.</p>
+            <p>Programa citas, rastrea historial, registra notas y recibe recordatorios.</p>
           </div>
           <div class="feature-card pro">
             <span class="pro-badge">👑 PRO</span>
             <h4>📄 Informes para Cuidadores</h4>
-            <p>Genera instrucciones de cuidado detalladas al instante. Exporta horarios. ¡Perfecto para vacaciones!</p>
+            <p>Genera instrucciones de cuidado detalladas al instante. ¡Perfecto para vacaciones!</p>
           </div>
           <div class="feature-card pro">
             <span class="pro-badge">👑 PRO</span>
             <h4>✂️ Tareas de Cuidado Ilimitadas</h4>
-            <p>Rastrea aseo, corte de uñas, limpieza de oídos, baños y todas las actividades de cuidado ilimitadas.</p>
+            <p>Rastrea aseo, corte de uñas, baños y todas las actividades de cuidado sin límite.</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>📊 Adherencia a la Medicación</h4>
+            <p>Porcentaje de dosis a tiempo de un vistazo en la vista de detalle de cada medicamento.</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>📤 Exportación CSV</h4>
+            <p>Exporta registros de respiración y peso como CSV para compartir con tu veterinario.</p>
           </div>
         </div>
-
-        <a href="https://apps.apple.com/app/id6756354393" class="button">Comienza Hoy - Descarga Gratuita</a>
+        <a href="https://apps.apple.com/app/id6756354393" class="button">Comienza Hoy – Descarga Gratuita</a>
       </div>
 
-      <!-- French -->
+      <!-- ── French ── -->
       <div class="lang lang-fr hidden">
         <div class="hero">
           <h2>🐾 Le Compagnon Santé de votre Animal</h2>
-          <p>N'oubliez plus jamais une dose de médicament, une séance de toilettage ou un rendez-vous vétérinaire. Gardez vos amis à fourrure, à plumes et à écailles en bonne santé et heureux.</p>
+          <p>N'oubliez plus jamais une dose de médicament, une séance de toilettage ou un rendez-vous vétérinaire. Gardez vos amis à fourrure, à plumes et à écailles en bonne santé.</p>
           <a href="https://apps.apple.com/app/id6756354393" class="button">Télécharger sur l'App Store</a>
         </div>
 
+        <div class="whats-new">
+          <h3>🆕 Nouveautés de la v1.7</h3>
+          <ul>
+            <li>Glissez vers la droite sur un rappel pour le marquer comme pris instantanément</li>
+            <li>Badge sur l'icône de l'app indiquant les rappels en retard</li>
+            <li>Le graphique respiratoire affiche la plage normale selon l'espèce</li>
+            <li>Taux d'observance des doses dans la vue détail du médicament <strong>(Pro)</strong></li>
+            <li>Exporter les données respiratoires &amp; de poids en CSV <strong>(Pro)</strong></li>
+            <li>Corrections de bugs et améliorations de stabilité</li>
+          </ul>
+        </div>
+
         <h2>Gestion Complète des Soins pour Animaux</h2>
-        <p>Mascotty vous aide à suivre les médicaments, les tâches de soins, les visites vétérinaires et les dossiers de santé pour tous vos animaux dans une application belle et facile à utiliser.</p>
-        
+        <p>Mascotty vous aide à suivre les médicaments, les tâches de soins, les visites vétérinaires, la respiration et les dossiers de santé pour tous vos animaux.</p>
+
         <div class="pro-box">
           <h3>🎉 Commencez Gratuitement, Passez à Pro Quand Vous Êtes Prêt</h3>
-          <p><strong>Gratuit:</strong> 1 animal, 2 tâches de soins, médicaments et suivi du poids illimités</p>
-          <p><strong>Pro (Achat Unique):</strong> Animaux illimités, tâches de soins illimitées, visites vétérinaires et rapports pour pet-sitters</p>
+          <p><strong>Gratuit:</strong> 1 animal, 2 tâches de soins, médicaments, suivi du poids &amp; de la respiration illimités</p>
+          <p><strong>Pro (Achat Unique):</strong> Animaux illimités, tâches illimitées, visites vétérinaires, rapports pet-sitter, observance &amp; export CSV</p>
           <p style="margin-top: 20px;"><em>Pas d'abonnements. Payez une fois, possédez pour toujours.</em></p>
         </div>
 
@@ -394,7 +461,7 @@
           <div class="feature-card">
             <span class="free-badge">GRATUIT</span>
             <h4>💊 Suivi des Médicaments</h4>
-            <p>Ne manquez jamais une dose avec des rappels intelligents. Suivez les dosages, instructions et historique complet.</p>
+            <p>Ne manquez jamais une dose. Glissez vers la droite pour marquer comme pris en un geste.</p>
           </div>
           <div class="feature-card">
             <span class="free-badge">GRATUIT</span>
@@ -408,13 +475,13 @@
           </div>
           <div class="feature-card">
             <span class="free-badge">GRATUIT</span>
-            <h4>📝 Dossiers de Santé</h4>
-            <p>Conservez historique complet de santé avec notes et observations.</p>
+            <h4>🫁 Journal de Respiration</h4>
+            <p>Enregistrez la fréquence respiratoire au repos avec plages normales par espèce sur le graphique.</p>
           </div>
           <div class="feature-card">
             <span class="free-badge">GRATUIT</span>
-            <h4>🐕 Un Animal</h4>
-            <p>Suivez un animal avec toutes les fonctionnalités y compris photos, médicaments et tâches de soins.</p>
+            <h4>📝 Dossiers de Santé</h4>
+            <p>Conservez un historique complet de santé avec notes et observations.</p>
           </div>
           <div class="feature-card">
             <span class="free-badge">GRATUIT</span>
@@ -428,95 +495,114 @@
           <div class="feature-card pro">
             <span class="pro-badge">👑 PRO</span>
             <h4>🐕🐈🦜 Animaux Illimités</h4>
-            <p>Gérez tous vos animaux dans une app. Chiens, chats, oiseaux, lapins et plus—sans limites!</p>
+            <p>Gérez tous vos animaux dans une app. Sans limites!</p>
           </div>
           <div class="feature-card pro">
             <span class="pro-badge">👑 PRO</span>
             <h4>🩺 Suivi des Visites Vétérinaires</h4>
-            <p>Planifiez rendez-vous, suivez historique, enregistrez notes de visite et recevez rappels.</p>
+            <p>Planifiez rendez-vous, suivez historique, enregistrez notes et recevez rappels.</p>
           </div>
           <div class="feature-card pro">
             <span class="pro-badge">👑 PRO</span>
             <h4>📄 Rapports pour Pet-Sitters</h4>
-            <p>Générez instructions de soins détaillées instantanément. Exportez horaires. Parfait pour vacances!</p>
+            <p>Générez instructions de soins détaillées instantanément. Parfait pour les vacances!</p>
           </div>
           <div class="feature-card pro">
             <span class="pro-badge">👑 PRO</span>
             <h4>✂️ Tâches de Soins Illimitées</h4>
-            <p>Suivez toilettage, coupe de griffes, nettoyage d'oreilles, bains et toutes activités de soins illimitées.</p>
+            <p>Suivez toilettage, coupe de griffes, bains et toutes activités de soins sans limite.</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>📊 Observance des Médicaments</h4>
+            <p>Taux de prises à l'heure en un coup d'œil dans la vue détail de chaque médicament.</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>📤 Export CSV</h4>
+            <p>Exportez journaux de respiration et de poids en CSV pour les partager avec votre vétérinaire.</p>
           </div>
         </div>
-
-        <a href="https://apps.apple.com/app/id6756354393" class="button">Commencez Aujourd'hui - Téléchargement Gratuit</a>
+        <a href="https://apps.apple.com/app/id6756354393" class="button">Commencez Aujourd'hui – Téléchargement Gratuit</a>
       </div>
     </div>
 
-    <!-- SUPPORT SECTION -->
+    <!-- ═══════════════════════════════════════════════════════ SUPPORT -->
     <div id="support" class="section hidden">
 
-      <!-- English Support -->
+      <!-- ── English Support ── -->
       <div class="lang lang-en">
-        <h2>Support & Help</h2>
+        <h2>Support &amp; Help</h2>
         <p>Need help with Mascotty? We're here to assist you.</p>
-        
+
         <h3>Contact</h3>
         <p>Email: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
-        <p>We typically respond within 24-48 hours.</p>
-        
+        <p>We typically respond within 24–48 hours.</p>
+
         <h3>Frequently Asked Questions</h3>
-        
+
         <div class="faq-item">
           <strong>What's the difference between Free and Pro?</strong>
-          <p><strong>Free:</strong> 1 pet, up to 2 care tasks, unlimited medications, weight tracking, health records.</p>
-          <p><strong>Pro (One-Time Purchase):</strong> Unlimited pets, unlimited care tasks, vet visit tracking, pet sitter reports.</p>
+          <p><strong>Free:</strong> 1 pet, up to 2 care tasks, unlimited medications, weight tracking, breathing log, health records.</p>
+          <p><strong>Pro (One-Time Purchase):</strong> Unlimited pets, unlimited care tasks, vet visit tracking, pet sitter reports, medication adherence %, CSV export.</p>
           <p>No subscriptions! Pay once and own forever.</p>
         </div>
-        
+
         <div class="faq-item">
           <strong>How do I upgrade to Pro?</strong>
-          <p>When you try to add a second pet, third care task, create a pet sitter report, or add a vet visit, the app will show you the upgrade screen. You can also upgrade from Settings > Upgrade to Pro.</p>
+          <p>When you try to add a second pet, a third care task, create a pet sitter report, or add a vet visit, the app will show you the upgrade screen. You can also upgrade from Settings &gt; Upgrade to Pro.</p>
         </div>
-        
+
         <div class="faq-item">
           <strong>How do I add a pet?</strong>
-          <p>Tap the "+" button on the main Pets screen. Fill in your pet's information including name, species, breed, date of birth, and photo. You can also add weight and notes. Free users can add 1 pet, Pro users can add unlimited pets.</p>
+          <p>Tap the "+" button on the main Pets screen. Fill in your pet's information including name, species, breed, date of birth, and photo. Free users can add 1 pet; Pro users can add unlimited pets.</p>
         </div>
-        
+
         <div class="faq-item">
           <strong>How do I schedule medications?</strong>
           <p>Open your pet's detail page, tap "Add Medication" in the Medications section. Enter the medication name, dosage, and instructions. Then add schedule times with your preferred frequency (daily, weekly, custom). You must specify how many times or until when the schedule should repeat.</p>
         </div>
-        
-        <div class="faq-item">
-          <strong>Can I track grooming and other care tasks?</strong>
-          <p>Yes! When adding a medication, toggle the type to "Care Task" instead of "Medication". You can schedule grooming, nail trimming, ear cleaning, baths, flea treatments, and more. Free users can track up to 2 care tasks, Pro users have unlimited care tasks.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>How do I schedule vet visits?</strong>
-          <p>Vet visit tracking is a Pro feature. On your pet's detail page, scroll to the Upcoming Vet Visits section. Tap "Add Vet Visit", select the date and time, and add an optional reason. You'll receive reminders 24 hours before the appointment.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>How do I generate a pet sitter report?</strong>
-          <p>Pet sitter reports are a Pro feature. Open your pet's detail page and tap "Pet Sitter Report" or go to Settings. Select which pets to include, choose your date range (maximum 90 days), and tap "Generate Report". You can then preview and share the report via text or email.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>Why do I need to set an end condition for schedules?</strong>
-          <p>To prevent notification overflow and ensure your device isn't cluttered with unlimited reminders, all recurring schedules must have either a repeat count (e.g., 30 times) or an end date. This is a design feature to protect your notification system.</p>
-        </div>
-        
+
         <div class="faq-item">
           <strong>How do I mark a medication as taken?</strong>
-          <p>Go to the Reminders tab, find the upcoming reminder, and tap "Mark Taken" (for medications) or "Mark Completed" (for care tasks). The app will warn you if you're marking it too early or too late, or if it's already been taken today.</p>
+          <p>Go to the Reminders tab and swipe right on any reminder to mark it as taken in one gesture, or tap the "Mark Taken" button. The app will warn you if you're marking too early, too late, or if it's already been taken today.</p>
         </div>
-        
+
+        <div class="faq-item">
+          <strong>What is the app icon badge?</strong>
+          <p>The badge on Mascotty's icon shows how many reminders are currently overdue. It updates automatically whenever you open the app or mark a reminder as taken. It clears to zero when nothing is overdue.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Can I track grooming and other care tasks?</strong>
+          <p>Yes! When adding a medication, toggle the type to "Care Task". You can schedule grooming, nail trimming, ear cleaning, baths, flea treatments, and more. Free users can track up to 2 care tasks; Pro users have unlimited care tasks.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>How does the breathing log work?</strong>
+          <p>On your pet's detail page, open the Breathing Log section to add resting breathing rate entries. The chart shows your entries over time and displays a shaded reference band for your pet's species' normal resting range (where applicable). Pro users can export the log as a CSV file.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>How do I schedule vet visits?</strong>
+          <p>Vet visit tracking is a Pro feature. On your pet's detail page, scroll to the Upcoming Vet Visits section. Tap "Add Vet Visit", select the date and time, and add an optional reason. You'll receive a reminder 24 hours before the appointment.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>How do I generate a pet sitter report?</strong>
+          <p>Pet sitter reports are a Pro feature. Open your pet's detail page and tap "Pet Sitter Report". Select which pets to include, choose your date range (maximum 90 days), and tap "Generate Report". You can then preview and share the report via message or email.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Why do I need to set an end condition for schedules?</strong>
+          <p>To prevent notification overflow, all recurring schedules must have either a repeat count (e.g., 30 times) or an end date. This protects your device from being flooded with unlimited reminders.</p>
+        </div>
+
         <div class="faq-item">
           <strong>Is my data private?</strong>
-          <p>Absolutely! All your data is stored locally on your device only. Mascotty never uploads your data to servers or shares it with third parties. Your pets' health information stays completely private.</p>
+          <p>Absolutely. All data is stored locally on your device only. Mascotty never uploads your data to servers or shares it with third parties. Your pets' health information stays completely private.</p>
         </div>
-        
+
         <h3>Technical Support</h3>
         <p>For technical issues, please email us with:</p>
         <ul>
@@ -525,7 +611,7 @@
           <li>Steps to reproduce the problem</li>
           <li>Screenshots if applicable</li>
         </ul>
-        
+
         <h3>System Requirements</h3>
         <ul>
           <li>iOS 17.0 or later</li>
@@ -534,107 +620,117 @@
         </ul>
       </div>
 
-      <!-- German Support -->
+      <!-- ── German Support ── -->
       <div class="lang lang-de hidden">
-        <h2>Support & Hilfe</h2>
+        <h2>Support &amp; Hilfe</h2>
         <p>Benötigen Sie Hilfe mit Mascotty? Wir sind für Sie da.</p>
-        
+
         <h3>Kontakt</h3>
         <p>E-Mail: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
-        <p>Wir antworten normalerweise innerhalb von 24-48 Stunden.</p>
-        
+        <p>Wir antworten normalerweise innerhalb von 24–48 Stunden.</p>
+
         <h3>Häufig Gestellte Fragen</h3>
-        
+
         <div class="faq-item">
           <strong>Was ist der Unterschied zwischen Kostenlos und Pro?</strong>
-          <p><strong>Kostenlos:</strong> 1 Haustier, bis zu 2 Pflegeaufgaben, unbegrenzte Medikamente, Gewichtsverfolgung, Gesundheitsunterlagen.</p>
-          <p><strong>Pro (Einmaliger Kauf):</strong> Unbegrenzte Haustiere, unbegrenzte Pflegeaufgaben, Tierarztbesuch-Verfolgung, Tiersitter-Berichte.</p>
+          <p><strong>Kostenlos:</strong> 1 Haustier, bis zu 2 Pflegeaufgaben, unbegrenzte Medikamente, Gewichtsverfolgung, Atemprotokoll, Gesundheitsunterlagen.</p>
+          <p><strong>Pro (Einmaliger Kauf):</strong> Unbegrenzte Haustiere, unbegrenzte Pflegeaufgaben, Tierarztbesuch-Verfolgung, Tiersitter-Berichte, Einnahmequote, CSV-Export.</p>
           <p>Keine Abonnements! Einmal zahlen und für immer besitzen.</p>
         </div>
-        
-        <div class="faq-item">
-          <strong>Wie upgrade ich auf Pro?</strong>
-          <p>Wenn Sie versuchen, ein zweites Haustier, eine dritte Pflegeaufgabe hinzuzufügen, einen Tiersitter-Bericht zu erstellen oder einen Tierarztbesuch hinzuzufügen, zeigt die App den Upgrade-Bildschirm. Sie können auch über Einstellungen > Auf Pro upgraden upgraden.</p>
-        </div>
-        
-        <div class="faq-item">
-          <strong>Wie füge ich ein Haustier hinzu?</strong>
-          <p>Tippen Sie auf die Schaltfläche "+" auf dem Hauptbildschirm für Haustiere. Kostenlose Benutzer können 1 Haustier hinzufügen, Pro-Benutzer können unbegrenzte Haustiere hinzufügen.</p>
-        </div>
-        
+
         <div class="faq-item">
           <strong>Wie markiere ich ein Medikament als eingenommen?</strong>
-          <p>Gehen Sie zur Registerkarte Erinnerungen, finden Sie die bevorstehende Erinnerung und tippen Sie auf "Als Eingenommen Markieren" (für Medikamente) oder "Als Erledigt Markieren" (für Pflegeaufgaben).</p>
+          <p>Gehen Sie zur Registerkarte Erinnerungen und wischen Sie die Erinnerung nach rechts, um sie sofort zu bestätigen, oder tippen Sie auf "Als Eingenommen Markieren".</p>
         </div>
-        
+
+        <div class="faq-item">
+          <strong>Was bedeutet das Badge-Symbol auf dem App-Icon?</strong>
+          <p>Das Badge zeigt, wie viele Erinnerungen aktuell überfällig sind. Es aktualisiert sich automatisch beim Öffnen der App oder nach dem Bestätigen einer Erinnerung.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Wie funktioniert das Atemprotokoll?</strong>
+          <p>Öffnen Sie den Bereich Atemprotokoll auf der Detailseite Ihres Haustieres. Das Diagramm zeigt artspezifische Normalbereiche. Pro-Nutzer können das Protokoll als CSV exportieren.</p>
+        </div>
+
         <div class="faq-item">
           <strong>Sind meine Daten privat?</strong>
           <p>Absolut! Alle Ihre Daten werden nur lokal auf Ihrem Gerät gespeichert. Mascotty lädt Ihre Daten niemals auf Server hoch oder teilt sie mit Dritten.</p>
         </div>
       </div>
 
-      <!-- Spanish Support -->
+      <!-- ── Spanish Support ── -->
       <div class="lang lang-es hidden">
         <h2>Soporte y Ayuda</h2>
         <p>¿Necesitas ayuda con Mascotty? Estamos aquí para asistirte.</p>
-        
+
         <h3>Contacto</h3>
         <p>Email: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
-        <p>Normalmente respondemos en 24-48 horas.</p>
-        
+        <p>Normalmente respondemos en 24–48 horas.</p>
+
         <h3>Preguntas Frecuentes</h3>
-        
+
         <div class="faq-item">
           <strong>¿Cuál es la diferencia entre Gratis y Pro?</strong>
-          <p><strong>Gratis:</strong> 1 mascota, hasta 2 tareas de cuidado, medicamentos ilimitados, seguimiento de peso, registros de salud.</p>
-          <p><strong>Pro (Compra Única):</strong> Mascotas ilimitadas, tareas de cuidado ilimitadas, seguimiento de visitas al veterinario, informes para cuidadores.</p>
+          <p><strong>Gratis:</strong> 1 mascota, hasta 2 tareas de cuidado, medicamentos ilimitados, seguimiento de peso, registro de respiración, registros de salud.</p>
+          <p><strong>Pro (Compra Única):</strong> Mascotas ilimitadas, tareas ilimitadas, visitas al veterinario, informes para cuidadores, adherencia y exportación CSV.</p>
           <p>¡Sin suscripciones! Paga una vez y posee para siempre.</p>
         </div>
-        
-        <div class="faq-item">
-          <strong>¿Cómo actualizo a Pro?</strong>
-          <p>Cuando intentes agregar una segunda mascota, tercera tarea de cuidado, crear un informe para cuidadores o agregar una visita al veterinario, la app mostrará la pantalla de actualización. También puedes actualizar desde Configuración > Actualizar a Pro.</p>
-        </div>
-        
+
         <div class="faq-item">
           <strong>¿Cómo marco un medicamento como tomado?</strong>
-          <p>Ve a la pestaña Recordatorios, encuentra el recordatorio próximo y toca "Marcar Tomado" (para medicamentos) o "Marcar Completado" (para tareas de cuidado).</p>
+          <p>Ve a la pestaña Recordatorios y desliza a la derecha para marcarlo como tomado en un gesto, o toca el botón "Marcar Tomado".</p>
         </div>
-        
+
+        <div class="faq-item">
+          <strong>¿Qué significa el badge en el icono de la app?</strong>
+          <p>El badge muestra cuántos recordatorios están vencidos en este momento. Se actualiza automáticamente al abrir la app o al marcar un recordatorio.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>¿Cómo funciona el registro de respiración?</strong>
+          <p>Abre la sección Registro de Respiración en la página de detalle de tu mascota. El gráfico incluye rangos normales por especie. Los usuarios Pro pueden exportar el registro como CSV.</p>
+        </div>
+
         <div class="faq-item">
           <strong>¿Son privados mis datos?</strong>
           <p>¡Absolutamente! Todos tus datos se almacenan localmente solo en tu dispositivo. Mascotty nunca sube tus datos a servidores ni los comparte con terceros.</p>
         </div>
       </div>
 
-      <!-- French Support -->
+      <!-- ── French Support ── -->
       <div class="lang lang-fr hidden">
         <h2>Support et Aide</h2>
         <p>Besoin d'aide avec Mascotty? Nous sommes là pour vous aider.</p>
-        
+
         <h3>Contact</h3>
         <p>Email: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
-        <p>Nous répondons généralement sous 24-48 heures.</p>
-        
+        <p>Nous répondons généralement sous 24–48 heures.</p>
+
         <h3>Questions Fréquemment Posées</h3>
-        
+
         <div class="faq-item">
           <strong>Quelle est la différence entre Gratuit et Pro?</strong>
-          <p><strong>Gratuit:</strong> 1 animal, jusqu'à 2 tâches de soins, médicaments illimités, suivi du poids, dossiers de santé.</p>
-          <p><strong>Pro (Achat Unique):</strong> Animaux illimités, tâches de soins illimitées, suivi des visites vétérinaires, rapports pour pet-sitters.</p>
+          <p><strong>Gratuit:</strong> 1 animal, jusqu'à 2 tâches de soins, médicaments illimités, suivi du poids, journal de respiration, dossiers de santé.</p>
+          <p><strong>Pro (Achat Unique):</strong> Animaux illimités, tâches illimitées, visites vétérinaires, rapports pet-sitter, observance et export CSV.</p>
           <p>Pas d'abonnements! Payez une fois et possédez pour toujours.</p>
         </div>
-        
-        <div class="faq-item">
-          <strong>Comment passer à Pro?</strong>
-          <p>Lorsque vous essayez d'ajouter un deuxième animal, une troisième tâche de soins, créer un rapport pour pet-sitter ou ajouter une visite vétérinaire, l'app affichera l'écran de mise à niveau. Vous pouvez aussi passer à Pro depuis Paramètres > Passer à Pro.</p>
-        </div>
-        
+
         <div class="faq-item">
           <strong>Comment marquer un médicament comme pris?</strong>
-          <p>Allez dans l'onglet Rappels, trouvez le rappel à venir et appuyez sur "Marquer Pris" (pour médicaments) ou "Marquer Terminé" (pour tâches de soins).</p>
+          <p>Allez dans l'onglet Rappels et glissez vers la droite pour marquer comme pris en un geste, ou appuyez sur le bouton "Marquer Pris".</p>
         </div>
-        
+
+        <div class="faq-item">
+          <strong>À quoi correspond le badge sur l'icône de l'app?</strong>
+          <p>Le badge indique combien de rappels sont actuellement en retard. Il se met à jour automatiquement à l'ouverture de l'app ou après avoir marqué un rappel.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Comment fonctionne le journal de respiration?</strong>
+          <p>Ouvrez la section Journal de Respiration sur la page détail de votre animal. Le graphique affiche les plages normales par espèce. Les utilisateurs Pro peuvent exporter le journal en CSV.</p>
+        </div>
+
         <div class="faq-item">
           <strong>Mes données sont-elles privées?</strong>
           <p>Absolument! Toutes vos données sont stockées localement uniquement sur votre appareil. Mascotty ne télécharge jamais vos données sur des serveurs ni ne les partage avec des tiers.</p>
@@ -642,9 +738,8 @@
       </div>
     </div>
 
-    <!-- PRIVACY SECTION (unchanged) -->
+    <!-- ═══════════════════════════════════════════════════════ PRIVACY -->
     <div id="privacy" class="section hidden">
-      <!-- Privacy content remains the same as before -->
       <div class="lang lang-en">
         <h2>Privacy Policy</h2>
         <h3>Complete Privacy by Design</h3>
@@ -653,14 +748,45 @@
         <p>Mascotty does not collect, transmit, or share any personal data or pet health information. All tracking data stays exclusively on your device.</p>
         <h3>Contact</h3>
         <p>If you have questions about privacy, contact us at: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
-        <p><em>Last updated: January 2025</em></p>
+        <p><em>Last updated: April 2026</em></p>
+      </div>
+      <div class="lang lang-de hidden">
+        <h2>Datenschutzrichtlinie</h2>
+        <h3>Vollständiger Datenschutz durch Design</h3>
+        <p>Mascotty wurde mit Ihrer Privatsphäre als oberste Priorität entwickelt. Wir glauben, dass die Gesundheitsinformationen Ihrer Haustiere vollständig privat bleiben sollten.</p>
+        <h3>Keine Datenerfassung</h3>
+        <p>Mascotty erfasst, überträgt oder teilt keine persönlichen Daten oder Gesundheitsinformationen über Haustiere. Alle Tracking-Daten verbleiben ausschließlich auf Ihrem Gerät.</p>
+        <h3>Kontakt</h3>
+        <p>Bei Fragen zum Datenschutz: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
+        <p><em>Zuletzt aktualisiert: April 2026</em></p>
+      </div>
+      <div class="lang lang-es hidden">
+        <h2>Política de Privacidad</h2>
+        <h3>Privacidad Completa por Diseño</h3>
+        <p>Mascotty está diseñado con tu privacidad como máxima prioridad. Todos los datos se almacenan exclusivamente en tu dispositivo.</p>
+        <h3>Sin Recopilación de Datos</h3>
+        <p>Mascotty no recopila, transmite ni comparte ningún dato personal ni información de salud de mascotas.</p>
+        <h3>Contacto</h3>
+        <p>Para preguntas sobre privacidad: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
+        <p><em>Última actualización: abril 2026</em></p>
+      </div>
+      <div class="lang lang-fr hidden">
+        <h2>Politique de Confidentialité</h2>
+        <h3>Confidentialité Complète par Conception</h3>
+        <p>Mascotty a été conçu avec votre vie privée comme priorité absolue. Toutes les données restent exclusivement sur votre appareil.</p>
+        <h3>Aucune Collecte de Données</h3>
+        <p>Mascotty ne collecte, ne transmet ni ne partage aucune donnée personnelle ou information de santé animale.</p>
+        <h3>Contact</h3>
+        <p>Pour toute question sur la confidentialité: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
+        <p><em>Dernière mise à jour: avril 2026</em></p>
       </div>
     </div>
 
   </div>
 
   <footer>
-    © 2025 Mascotty. All rights reserved. | <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a><br>
+    © 2026 Mascotty. All rights reserved. | <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a>
+    <p class="disclaimer">Mascotty is a personal hobby project developed in the developer's free time. Compatibility and future updates are at the developer's discretion. Pro access is a voluntary contribution to support the project — it does not constitute the purchase of a service or create any obligation on the part of the developer.</p>
   </footer>
 </body>
 </html>
