@@ -41,6 +41,9 @@
     .hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(118,75,162,0.1) 100%); border-radius: 10px; margin-bottom: 40px; }
     .hero h2 { font-size: 2.5em; margin-bottom: 20px; }
     .hero p { font-size: 1.2em; color: #555; max-width: 700px; margin: 0 auto 30px; }
+    .pay-once { display: inline-block; margin: 0 auto 24px; padding: 8px 18px; background: white; border: 2px solid #667eea; color: #667eea; border-radius: 999px; font-weight: 700; font-size: 0.95em; letter-spacing: 0.2px; }
+    .trust-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 10px; }
+    .trust-row span { background: rgba(255,255,255,0.7); border: 1px solid #e2e8f0; color: #475569; padding: 6px 14px; border-radius: 999px; font-size: 0.85em; font-weight: 600; }
     .whats-new { background: linear-gradient(135deg, rgba(102,126,234,0.08) 0%, rgba(118,75,162,0.08) 100%); border: 1px solid #667eea; padding: 20px 25px; border-radius: 10px; margin: 30px 0; }
     .whats-new h3 { color: #667eea; margin-top: 0; font-size: 1.2em; }
     .whats-new ul { margin: 10px 0 0 18px; line-height: 1.9; }
@@ -67,7 +70,7 @@
       if (hash === 'privacy') showSection('privacy');
       else if (hash === 'support') showSection('support');
       else showSection('home');
-      const validLangs = ['en', 'de', 'es', 'fr'];
+      const validLangs = ['en', 'de', 'es', 'fr', 'it', 'ja', 'ko'];
       switchLanguage(validLangs.includes(lang) ? lang : 'en');
     }
   </script>
@@ -86,6 +89,9 @@
         <option value="de">Deutsch</option>
         <option value="es">Español</option>
         <option value="fr">Français</option>
+        <option value="it">Italiano</option>
+        <option value="ja">日本語</option>
+        <option value="ko">한국어</option>
       </select>
     </div>
   </header>
@@ -98,19 +104,24 @@
       <!-- ── English ── -->
       <div class="lang lang-en">
         <div class="hero">
-          <h2>🐾 Your Pet's Health Companion</h2>
-          <p>Never miss a medication dose, grooming session, or vet appointment. Keep your furry, feathered, and scaly friends healthy and happy.</p>
+          <h2>🐾 Complete Pet Care, One Calm App</h2>
+          <span class="pay-once">Pay once · No subscription · No ads</span>
+          <p>Meds, grooming, vet visits, breathing, weight — tracked in one place and gently off your mental to-do list. For dogs, cats, birds, rabbits, and every other best friend.</p>
           <a href="https://apps.apple.com/app/id6756354393" class="button">Download on the App Store</a>
+          <div class="trust-row">
+            <span>🔒 100% on-device</span>
+            <span>🌍 7 languages</span>
+            <span>📄 Vet-ready reports</span>
+          </div>
         </div>
 
         <div class="whats-new">
-          <h3>🆕 What's New in v1.7</h3>
+          <h3>🆕 What's New in v1.8</h3>
           <ul>
-            <li>Swipe right on any reminder to mark it as taken instantly</li>
-            <li>App icon badge now shows overdue reminder count</li>
-            <li>Breathing chart shows normal resting range for your pet's species</li>
-            <li>Medication adherence % card in medication detail <strong>(Pro)</strong></li>
-            <li>Export breathing &amp; weight data as CSV <strong>(Pro)</strong></li>
+            <li>Smart notification management — stays safely under iOS's 64-reminder limit even with many recurring meds</li>
+            <li>Full VoiceOver support across reminders, schedules, paywall and settings</li>
+            <li>Cleaner paywall, quicker swipe-to-mark-taken, polished Pro badges</li>
+            <li>Polite review prompt that only appears after you've actually used the app for a while</li>
             <li>Bug fixes and stability improvements</li>
           </ul>
         </div>
@@ -121,8 +132,8 @@
         <div class="pro-box">
           <h3>🎉 Start Free, Upgrade When You're Ready</h3>
           <p><strong>Free:</strong> 1 pet, 2 care tasks, unlimited medications &amp; weight tracking</p>
-          <p><strong>Pro (One-Time Purchase):</strong> Unlimited pets, unlimited care tasks, vet visit tracking, breathing log, pet sitter reports, adherence analytics &amp; CSV export</p>
-          <p style="margin-top: 20px;"><em>No subscriptions. Pay once, own forever.</em></p>
+          <p><strong>Pro (One-Time Purchase — $9.99):</strong> Unlimited pets, unlimited care tasks, vet visit tracking, breathing log, pet sitter reports, adherence analytics &amp; CSV export</p>
+          <p style="margin-top: 20px;"><em>No subscriptions. No ads. Pay once, own forever.</em></p>
         </div>
 
         <h3>Free Features</h3>
@@ -205,13 +216,14 @@
           <li><strong>Medication Adherence (Pro):</strong> On-time dose percentage per medication</li>
           <li><strong>CSV Export (Pro):</strong> Export breathing and weight data for external use</li>
           <li><strong>Pet Sitter Reports (Pro):</strong> Export detailed care schedules with dates and times</li>
+          <li><strong>Accessibility:</strong> Full VoiceOver support throughout the app</li>
           <li><strong>Offline Ready:</strong> Works without internet connection</li>
           <li><strong>Photos &amp; Notes:</strong> Add photos and custom notes for each pet</li>
           <li><strong>Multilingual:</strong> Available in English, German, Spanish, French, Italian, Korean, and Japanese</li>
         </ul>
 
         <div class="note">
-          <strong>Important:</strong> Mascotty is designed to prevent notification overflow. All recurring schedules require an end condition (number of repetitions or end date) to ensure your device isn't cluttered with unlimited reminders.
+          <strong>Important:</strong> Mascotty is designed to prevent notification overflow. All recurring schedules require an end condition (number of repetitions or end date), and the app automatically stays under iOS's 64-reminder system limit so nothing ever silently fails to fire.
         </div>
 
         <h3>Perfect For</h3>
@@ -229,19 +241,24 @@
       <!-- ── German ── -->
       <div class="lang lang-de hidden">
         <div class="hero">
-          <h2>🐾 Der Gesundheitsbegleiter für Ihr Haustier</h2>
-          <p>Verpassen Sie nie eine Medikamentendosis, Pflegesitzung oder Tierarzttermin. Halten Sie Ihre pelzigen, gefiederten und schuppigen Freunde gesund und glücklich.</p>
+          <h2>🐾 Komplette Haustierpflege in einer ruhigen App</h2>
+          <span class="pay-once">Einmal zahlen · Kein Abo · Keine Werbung</span>
+          <p>Medikamente, Fellpflege, Tierarzt, Atmung, Gewicht — alles an einem Ort und sanft aus Ihrem Kopf. Für Hunde, Katzen, Vögel, Kaninchen und jeden anderen besten Freund.</p>
           <a href="https://apps.apple.com/app/id6756354393" class="button">Im App Store herunterladen</a>
+          <div class="trust-row">
+            <span>🔒 100% auf dem Gerät</span>
+            <span>🌍 7 Sprachen</span>
+            <span>📄 Tierarzt-taugliche Berichte</span>
+          </div>
         </div>
 
         <div class="whats-new">
-          <h3>🆕 Neu in v1.7</h3>
+          <h3>🆕 Neu in v1.8</h3>
           <ul>
-            <li>Erinnerung nach rechts wischen, um sie sofort als eingenommen zu markieren</li>
-            <li>App-Symbol zeigt jetzt überfällige Erinnerungen als Badge</li>
-            <li>Atemfrequenz-Diagramm zeigt den Normalbereich der Tierart</li>
-            <li>Einnahmequote als Prozentanzeige in der Medikamenten-Detailansicht <strong>(Pro)</strong></li>
-            <li>Atem- &amp; Gewichtsdaten als CSV exportieren <strong>(Pro)</strong></li>
+            <li>Intelligente Benachrichtigungsverwaltung — bleibt sicher unter dem iOS-Limit von 64 Erinnerungen, auch bei vielen wiederkehrenden Medikamenten</li>
+            <li>Vollständige VoiceOver-Unterstützung in Erinnerungen, Zeitplänen, Paywall und Einstellungen</li>
+            <li>Klarere Paywall, schnelleres Wischen zum Bestätigen, polierte Pro-Badges</li>
+            <li>Höfliche Bewertungsaufforderung, die erst nach echter Nutzung erscheint</li>
             <li>Fehlerbehebungen und Stabilitätsverbesserungen</li>
           </ul>
         </div>
@@ -252,8 +269,8 @@
         <div class="pro-box">
           <h3>🎉 Kostenlos Starten, Upgraden Wenn Bereit</h3>
           <p><strong>Kostenlos:</strong> 1 Haustier, 2 Pflegeaufgaben, unbegrenzte Medikamente &amp; Gewichtsverfolgung</p>
-          <p><strong>Pro (Einmaliger Kauf):</strong> Unbegrenzte Haustiere, unbegrenzte Pflegeaufgaben, Atemprotokoll, Tierarztbesuche, Tiersitter-Berichte, Einnahmeanalysen &amp; CSV-Export</p>
-          <p style="margin-top: 20px;"><em>Keine Abonnements. Einmal zahlen, für immer besitzen.</em></p>
+          <p><strong>Pro (Einmaliger Kauf — 9,99 $):</strong> Unbegrenzte Haustiere, unbegrenzte Pflegeaufgaben, Atemprotokoll, Tierarztbesuche, Tiersitter-Berichte, Einnahmeanalysen &amp; CSV-Export</p>
+          <p style="margin-top: 20px;"><em>Keine Abonnements. Keine Werbung. Einmal zahlen, für immer besitzen.</em></p>
         </div>
 
         <h3>Kostenlose Funktionen</h3>
@@ -329,19 +346,24 @@
       <!-- ── Spanish ── -->
       <div class="lang lang-es hidden">
         <div class="hero">
-          <h2>🐾 El Compañero de Salud de tu Mascota</h2>
-          <p>Nunca olvides una dosis de medicamento, sesión de aseo o cita veterinaria. Mantén a tus amigos peludos, emplumados y escamosos saludables y felices.</p>
+          <h2>🐾 Cuidado Completo de Mascotas, en una App Tranquila</h2>
+          <span class="pay-once">Pago único · Sin suscripción · Sin anuncios</span>
+          <p>Medicamentos, aseo, visitas al veterinario, respiración, peso — todo en un solo lugar y fuera de tu mente. Para perros, gatos, aves, conejos y cualquier otro mejor amigo.</p>
           <a href="https://apps.apple.com/app/id6756354393" class="button">Descargar en el App Store</a>
+          <div class="trust-row">
+            <span>🔒 100% en el dispositivo</span>
+            <span>🌍 7 idiomas</span>
+            <span>📄 Informes para el veterinario</span>
+          </div>
         </div>
 
         <div class="whats-new">
-          <h3>🆕 Novedades en v1.7</h3>
+          <h3>🆕 Novedades en v1.8</h3>
           <ul>
-            <li>Desliza a la derecha en cualquier recordatorio para marcarlo como tomado al instante</li>
-            <li>El icono de la app muestra un badge con los recordatorios vencidos</li>
-            <li>El gráfico de respiración muestra el rango normal para la especie de tu mascota</li>
-            <li>Porcentaje de adherencia a la medicación en la vista de detalle <strong>(Pro)</strong></li>
-            <li>Exportar datos de respiración y peso como CSV <strong>(Pro)</strong></li>
+            <li>Gestión inteligente de notificaciones — se mantiene dentro del límite de 64 recordatorios de iOS incluso con muchos medicamentos recurrentes</li>
+            <li>Soporte completo de VoiceOver en recordatorios, calendario, paywall y ajustes</li>
+            <li>Paywall más claro, gesto de "tomado" más rápido, badges Pro pulidos</li>
+            <li>Petición de reseña educada que solo aparece tras un uso real de la app</li>
             <li>Correcciones de errores y mejoras de estabilidad</li>
           </ul>
         </div>
@@ -352,8 +374,8 @@
         <div class="pro-box">
           <h3>🎉 Comienza Gratis, Actualiza Cuando Estés Listo</h3>
           <p><strong>Gratis:</strong> 1 mascota, 2 tareas de cuidado, medicamentos y seguimiento de peso ilimitados</p>
-          <p><strong>Pro (Compra Única):</strong> Mascotas ilimitadas, tareas ilimitadas, registro de respiración, visitas al veterinario, informes para cuidadores, adherencia y exportación CSV</p>
-          <p style="margin-top: 20px;"><em>Sin suscripciones. Paga una vez, posee para siempre.</em></p>
+          <p><strong>Pro (Compra Única — 9,99 $):</strong> Mascotas ilimitadas, tareas ilimitadas, registro de respiración, visitas al veterinario, informes para cuidadores, adherencia y exportación CSV</p>
+          <p style="margin-top: 20px;"><em>Sin suscripciones. Sin anuncios. Paga una vez, posee para siempre.</em></p>
         </div>
 
         <h3>Funciones Gratuitas</h3>
@@ -429,19 +451,24 @@
       <!-- ── French ── -->
       <div class="lang lang-fr hidden">
         <div class="hero">
-          <h2>🐾 Le Compagnon Santé de votre Animal</h2>
-          <p>N'oubliez plus jamais une dose de médicament, une séance de toilettage ou un rendez-vous vétérinaire. Gardez vos amis à fourrure, à plumes et à écailles en bonne santé.</p>
+          <h2>🐾 Soin Complet pour Votre Animal, Dans Une App Apaisante</h2>
+          <span class="pay-once">Paiement unique · Sans abonnement · Sans publicité</span>
+          <p>Médicaments, toilettage, visites vétérinaires, respiration, poids — tout au même endroit et doucement hors de votre tête. Pour chiens, chats, oiseaux, lapins et tout autre meilleur ami.</p>
           <a href="https://apps.apple.com/app/id6756354393" class="button">Télécharger sur l'App Store</a>
+          <div class="trust-row">
+            <span>🔒 100% sur l'appareil</span>
+            <span>🌍 7 langues</span>
+            <span>📄 Rapports prêts pour le véto</span>
+          </div>
         </div>
 
         <div class="whats-new">
-          <h3>🆕 Nouveautés de la v1.7</h3>
+          <h3>🆕 Nouveautés de la v1.8</h3>
           <ul>
-            <li>Glissez vers la droite sur un rappel pour le marquer comme pris instantanément</li>
-            <li>Badge sur l'icône de l'app indiquant les rappels en retard</li>
-            <li>Le graphique respiratoire affiche la plage normale selon l'espèce</li>
-            <li>Taux d'observance des doses dans la vue détail du médicament <strong>(Pro)</strong></li>
-            <li>Exporter les données respiratoires &amp; de poids en CSV <strong>(Pro)</strong></li>
+            <li>Gestion intelligente des notifications — reste sous la limite iOS de 64 rappels même avec de nombreux traitements récurrents</li>
+            <li>Prise en charge complète de VoiceOver dans les rappels, le planning, la paywall et les réglages</li>
+            <li>Paywall plus claire, geste "pris" plus rapide, badges Pro peaufinés</li>
+            <li>Demande d'évaluation polie qui n'apparaît qu'après un vrai usage</li>
             <li>Corrections de bugs et améliorations de stabilité</li>
           </ul>
         </div>
@@ -452,8 +479,8 @@
         <div class="pro-box">
           <h3>🎉 Commencez Gratuitement, Passez à Pro Quand Vous Êtes Prêt</h3>
           <p><strong>Gratuit:</strong> 1 animal, 2 tâches de soins, médicaments &amp; suivi du poids illimités</p>
-          <p><strong>Pro (Achat Unique):</strong> Animaux illimités, tâches illimitées, journal de respiration, visites vétérinaires, rapports pet-sitter, observance &amp; export CSV</p>
-          <p style="margin-top: 20px;"><em>Pas d'abonnements. Payez une fois, possédez pour toujours.</em></p>
+          <p><strong>Pro (Achat Unique — 9,99 $):</strong> Animaux illimités, tâches illimitées, journal de respiration, visites vétérinaires, rapports pet-sitter, observance &amp; export CSV</p>
+          <p style="margin-top: 20px;"><em>Pas d'abonnements. Pas de publicités. Payez une fois, possédez pour toujours.</em></p>
         </div>
 
         <h3>Fonctionnalités Gratuites</h3>
@@ -525,6 +552,321 @@
         </div>
         <a href="https://apps.apple.com/app/id6756354393" class="button">Commencez Aujourd'hui – Téléchargement Gratuit</a>
       </div>
+
+      <!-- ── Italian ── -->
+      <div class="lang lang-it hidden">
+        <div class="hero">
+          <h2>🐾 Cura Completa del Tuo Animale, in Un'App Serena</h2>
+          <span class="pay-once">Pagamento unico · Nessun abbonamento · Nessuna pubblicità</span>
+          <p>Farmaci, toelettatura, veterinario, respiro, peso — tutto in un posto e fuori dalla tua testa. Per cani, gatti, uccelli, conigli e ogni altro migliore amico.</p>
+          <a href="https://apps.apple.com/app/id6756354393" class="button">Scarica dall'App Store</a>
+          <div class="trust-row">
+            <span>🔒 100% sul dispositivo</span>
+            <span>🌍 7 lingue</span>
+            <span>📄 Report pronti per il veterinario</span>
+          </div>
+        </div>
+
+        <div class="whats-new">
+          <h3>🆕 Novità nella v1.8</h3>
+          <ul>
+            <li>Gestione intelligente delle notifiche — resta sotto il limite iOS di 64 promemoria anche con molti farmaci ricorrenti</li>
+            <li>Supporto VoiceOver completo in promemoria, calendario, paywall e impostazioni</li>
+            <li>Paywall più chiara, gesto "assunto" più veloce, badge Pro rifiniti</li>
+            <li>Richiesta di recensione educata che appare solo dopo un uso reale</li>
+            <li>Correzioni di bug e miglioramenti di stabilità</li>
+          </ul>
+        </div>
+
+        <h2>Gestione Completa della Cura del Tuo Animale</h2>
+        <p>Mascotty ti aiuta a tracciare farmaci, attività di cura, visite veterinarie, respiro e dati sanitari per tutti i tuoi animali in un'app bella e facile da usare.</p>
+
+        <div class="pro-box">
+          <h3>🎉 Inizia Gratis, Passa a Pro Quando Sei Pronto</h3>
+          <p><strong>Gratis:</strong> 1 animale, 2 attività di cura, farmaci e tracciamento del peso illimitati</p>
+          <p><strong>Pro (Acquisto Unico — 9,99 $):</strong> Animali illimitati, attività illimitate, diario del respiro, visite veterinarie, report per pet sitter, aderenza ed esportazione CSV</p>
+          <p style="margin-top: 20px;"><em>Nessun abbonamento. Nessuna pubblicità. Paga una volta, è tuo per sempre.</em></p>
+        </div>
+
+        <h3>Funzionalità Gratuite</h3>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <span class="free-badge">GRATIS</span>
+            <h4>💊 Tracciamento Farmaci</h4>
+            <p>Non saltare mai una dose. Scorri a destra per segnare come assunto in un gesto.</p>
+          </div>
+          <div class="feature-card">
+            <span class="free-badge">GRATIS</span>
+            <h4>✂️ Cura di Base (Fino a 2)</h4>
+            <p>Pianifica toelettatura, taglio unghie, pulizia orecchie e bagni con promemoria flessibili.</p>
+          </div>
+          <div class="feature-card">
+            <span class="free-badge">GRATIS</span>
+            <h4>⚖️ Monitoraggio del Peso</h4>
+            <p>Traccia il peso nel tempo e monitora le tendenze di salute.</p>
+          </div>
+          <div class="feature-card">
+            <span class="free-badge">GRATIS</span>
+            <h4>📝 Dati Sanitari</h4>
+            <p>Mantieni uno storico sanitario completo con note e osservazioni.</p>
+          </div>
+          <div class="feature-card">
+            <span class="free-badge">GRATIS</span>
+            <h4>🔒 Privacy Totale</h4>
+            <p>Tutti i dati restano sul tuo dispositivo. Niente cloud, niente server.</p>
+          </div>
+        </div>
+
+        <h3>Funzionalità Pro (Acquisto Unico)</h3>
+        <div class="feature-grid">
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>🐕🐈🦜 Animali Illimitati</h4>
+            <p>Gestisci tutti i tuoi animali in un'app. Senza limiti!</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>🩺 Visite Veterinarie</h4>
+            <p>Programma appuntamenti, traccia lo storico, registra note e ricevi promemoria.</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>📄 Report per Pet Sitter</h4>
+            <p>Genera istruzioni di cura dettagliate all'istante. Perfetto per le vacanze!</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>✂️ Attività di Cura Illimitate</h4>
+            <p>Traccia toelettatura, taglio unghie, bagni e tutte le attività di cura senza limiti.</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>🫁 Diario del Respiro</h4>
+            <p>Registra la frequenza respiratoria a riposo con intervalli normali per specie sul grafico.</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>📊 Aderenza alla Terapia</h4>
+            <p>Percentuale di dosi puntuali a colpo d'occhio nel dettaglio di ogni farmaco.</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>📤 Esportazione CSV</h4>
+            <p>Esporta diario del respiro e del peso in CSV per condividere con il veterinario.</p>
+          </div>
+        </div>
+        <a href="https://apps.apple.com/app/id6756354393" class="button">Inizia Oggi – Download Gratuito</a>
+      </div>
+
+      <!-- ── Japanese ── -->
+      <div class="lang lang-ja hidden">
+        <div class="hero">
+          <h2>🐾 ペットケアをすべて、ひとつの穏やかなアプリで</h2>
+          <span class="pay-once">買い切り · サブスクなし · 広告なし</span>
+          <p>薬、トリミング、通院、呼吸数、体重 — すべてをひとつにまとめて、あなたの頭の中から優しく消していきます。犬、猫、鳥、うさぎ、どんな大切な家族にも。</p>
+          <a href="https://apps.apple.com/app/id6756354393" class="button">App Storeでダウンロード</a>
+          <div class="trust-row">
+            <span>🔒 100% 端末内に保存</span>
+            <span>🌍 7言語対応</span>
+            <span>📄 動物病院にそのまま渡せるレポート</span>
+          </div>
+        </div>
+
+        <div class="whats-new">
+          <h3>🆕 v1.8の新機能</h3>
+          <ul>
+            <li>通知の自動管理 — 繰り返し投薬が多くても、iOSの通知上限(64件)を超えないように自動調整</li>
+            <li>VoiceOver完全対応 — リマインダー、スケジュール、購入画面、設定すべてで</li>
+            <li>購入画面を整理、スワイプで「服用済み」がさらに速く、Proバッジも磨き込み</li>
+            <li>アプリを実際に使い込んだあとだけ表示される、控えめなレビュー依頼</li>
+            <li>不具合修正と安定性の向上</li>
+          </ul>
+        </div>
+
+        <h2>ペットケアを丸ごと管理</h2>
+        <p>Mascottyは、投薬、ケアタスク、通院、呼吸数、健康記録を、すべてのペットについてひとつの美しいアプリで管理できるようにします。</p>
+
+        <div class="pro-box">
+          <h3>🎉 無料ではじめて、準備ができたらProへ</h3>
+          <p><strong>無料:</strong> ペット1匹、ケアタスク2つまで、投薬と体重記録は無制限</p>
+          <p><strong>Pro(買い切り — 9.99ドル):</strong> ペット・ケアタスク無制限、通院記録、呼吸ログ、ペットシッター用レポート、服薬率、CSV書き出し</p>
+          <p style="margin-top: 20px;"><em>サブスクなし、広告なし。一度の購入で、ずっと使えます。</em></p>
+        </div>
+
+        <h3>無料機能</h3>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <span class="free-badge">無料</span>
+            <h4>💊 投薬管理</h4>
+            <p>賢いリマインダーで飲み忘れを防止。右スワイプで瞬時に「服用済み」に。</p>
+          </div>
+          <div class="feature-card">
+            <span class="free-badge">無料</span>
+            <h4>✂️ 基本ケア(2つまで)</h4>
+            <p>トリミング、爪切り、耳掃除、お風呂を柔軟なリマインダーで予定管理。</p>
+          </div>
+          <div class="feature-card">
+            <span class="free-badge">無料</span>
+            <h4>⚖️ 体重モニタリング</h4>
+            <p>体重の推移を記録して、健康のトレンドを把握。</p>
+          </div>
+          <div class="feature-card">
+            <span class="free-badge">無料</span>
+            <h4>📝 健康記録</h4>
+            <p>メモと観察を添えて、健康履歴を丁寧に残せます。</p>
+          </div>
+          <div class="feature-card">
+            <span class="free-badge">無料</span>
+            <h4>🔒 完全プライバシー</h4>
+            <p>データはすべて端末内。クラウド同期もサーバーもありません。</p>
+          </div>
+        </div>
+
+        <h3>Pro機能(買い切り)</h3>
+        <div class="feature-grid">
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>🐕🐈🦜 ペット無制限</h4>
+            <p>何匹でもひとつのアプリで管理。犬も猫も鳥もうさぎも。</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>🩺 通院記録</h4>
+            <p>予約、履歴、メモ、リマインダーまで丸ごと管理。</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>📄 ペットシッター用レポート</h4>
+            <p>詳細なお世話マニュアルをワンタップで作成。旅行や出張にぴったり。</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>✂️ ケアタスク無制限</h4>
+            <p>トリミング、爪切り、耳掃除、お風呂など、あらゆるケアを無制限に追跡。</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>🫁 呼吸ログ</h4>
+            <p>安静時の呼吸数を記録・可視化。グラフには種別の正常範囲も表示。</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>📊 服薬アドヒアランス</h4>
+            <p>定時服用率をひと目で確認できるカードが各薬の詳細画面に。</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>📤 CSV書き出し</h4>
+            <p>呼吸と体重のログをCSVに書き出して、獣医師と簡単に共有。</p>
+          </div>
+        </div>
+        <a href="https://apps.apple.com/app/id6756354393" class="button">今日はじめる – 無料ダウンロード</a>
+      </div>
+
+      <!-- ── Korean ── -->
+      <div class="lang lang-ko hidden">
+        <div class="hero">
+          <h2>🐾 반려동물 케어 전부를 하나의 차분한 앱에서</h2>
+          <span class="pay-once">한 번만 결제 · 구독 없음 · 광고 없음</span>
+          <p>약, 미용, 병원, 호흡수, 체중 — 모두 한 곳에 모아 머릿속에서 부드럽게 덜어냅니다. 강아지·고양이·새·토끼·모든 소중한 친구를 위해.</p>
+          <a href="https://apps.apple.com/app/id6756354393" class="button">App Store에서 다운로드</a>
+          <div class="trust-row">
+            <span>🔒 100% 기기 내 저장</span>
+            <span>🌍 7개 언어</span>
+            <span>📄 수의사에게 바로 줄 수 있는 리포트</span>
+          </div>
+        </div>
+
+        <div class="whats-new">
+          <h3>🆕 v1.8 업데이트 내용</h3>
+          <ul>
+            <li>스마트 알림 관리 — 반복 투약이 많아도 iOS 알림 한도(64개)를 넘지 않도록 자동 조정</li>
+            <li>VoiceOver 전면 지원 — 알림, 일정, 결제 화면, 설정 어디서나</li>
+            <li>결제 화면 정리, 스와이프 "복용 완료"가 더 빨라졌고 Pro 뱃지도 다듬음</li>
+            <li>실제로 앱을 써 본 뒤에만 등장하는 조용한 리뷰 요청</li>
+            <li>버그 수정 및 안정성 개선</li>
+          </ul>
+        </div>
+
+        <h2>반려동물 케어를 한 번에</h2>
+        <p>Mascotty는 투약, 케어 작업, 병원 방문, 호흡수, 건강 기록을 모든 반려동물에 대해 하나의 예쁜 앱에서 쉽게 관리하도록 도와드립니다.</p>
+
+        <div class="pro-box">
+          <h3>🎉 무료로 시작하고, 준비되면 Pro로</h3>
+          <p><strong>무료:</strong> 반려동물 1마리, 케어 작업 2개, 투약과 체중 기록 무제한</p>
+          <p><strong>Pro (일회성 구매 — 9.99달러):</strong> 반려동물·케어 작업 무제한, 병원 방문 기록, 호흡 로그, 펫시터용 리포트, 복약률, CSV 내보내기</p>
+          <p style="margin-top: 20px;"><em>구독 없음, 광고 없음. 한 번만 결제하고 계속 사용하세요.</em></p>
+        </div>
+
+        <h3>무료 기능</h3>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <span class="free-badge">무료</span>
+            <h4>💊 투약 관리</h4>
+            <p>스마트 알림으로 복용을 놓치지 마세요. 오른쪽으로 쓸어 넘겨 즉시 "복용 완료".</p>
+          </div>
+          <div class="feature-card">
+            <span class="free-badge">무료</span>
+            <h4>✂️ 기본 케어 (최대 2개)</h4>
+            <p>미용, 발톱 정리, 귀 청소, 목욕을 유연한 알림과 함께 예약하세요.</p>
+          </div>
+          <div class="feature-card">
+            <span class="free-badge">무료</span>
+            <h4>⚖️ 체중 모니터링</h4>
+            <p>시간에 따른 체중 변화를 기록하고 건강 추세를 파악하세요.</p>
+          </div>
+          <div class="feature-card">
+            <span class="free-badge">무료</span>
+            <h4>📝 건강 기록</h4>
+            <p>메모와 관찰을 더해 포괄적인 건강 이력을 유지하세요.</p>
+          </div>
+          <div class="feature-card">
+            <span class="free-badge">무료</span>
+            <h4>🔒 완벽한 프라이버시</h4>
+            <p>모든 데이터는 기기에만 저장됩니다. 클라우드 동기화도, 서버도 없습니다.</p>
+          </div>
+        </div>
+
+        <h3>Pro 기능 (일회성 구매)</h3>
+        <div class="feature-grid">
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>🐕🐈🦜 반려동물 무제한</h4>
+            <p>한 앱에서 모든 반려동물을 관리하세요. 제한 없음!</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>🩺 병원 방문 기록</h4>
+            <p>예약, 기록, 방문 노트, 알림까지 한 번에.</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>📄 펫시터용 리포트</h4>
+            <p>세세한 케어 설명서를 즉시 생성. 여행이나 출장에 딱 맞아요.</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>✂️ 케어 작업 무제한</h4>
+            <p>미용, 발톱 정리, 귀 청소, 목욕 등 모든 케어 활동을 무제한 추적.</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>🫁 호흡 로그</h4>
+            <p>안정 시 호흡수를 기록하고 추세를 시각화. 종별 정상 범위도 함께 표시.</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>📊 복약률</h4>
+            <p>약별 상세 화면에서 정시 복용률을 한눈에 확인.</p>
+          </div>
+          <div class="feature-card pro">
+            <span class="pro-badge">👑 PRO</span>
+            <h4>📤 CSV 내보내기</h4>
+            <p>호흡과 체중 로그를 CSV로 내보내 수의사와 쉽게 공유하세요.</p>
+          </div>
+        </div>
+        <a href="https://apps.apple.com/app/id6756354393" class="button">오늘 시작하기 – 무료 다운로드</a>
+      </div>
     </div>
 
     <!-- ═══════════════════════════════════════════════════════ SUPPORT -->
@@ -544,8 +886,8 @@
         <div class="faq-item">
           <strong>What's the difference between Free and Pro?</strong>
           <p><strong>Free:</strong> 1 pet, up to 2 care tasks, unlimited medications, weight tracking, health records.</p>
-          <p><strong>Pro (One-Time Purchase):</strong> Unlimited pets, unlimited care tasks, breathing log, vet visit tracking, pet sitter reports, medication adherence %, CSV export.</p>
-          <p>No subscriptions! Pay once and own forever.</p>
+          <p><strong>Pro (One-Time Purchase — $9.99):</strong> Unlimited pets, unlimited care tasks, breathing log, vet visit tracking, pet sitter reports, medication adherence %, CSV export.</p>
+          <p>No subscriptions, no ads. Pay once and own forever.</p>
         </div>
 
         <div class="faq-item">
@@ -569,6 +911,11 @@
         </div>
 
         <div class="faq-item">
+          <strong>What happens if I have many recurring medications?</strong>
+          <p>iOS limits any app to 64 scheduled notifications at once. Mascotty automatically keeps you safely under that limit by preserving your most important and nearest-in-time reminders, so nothing ever silently fails to fire. You don't need to do anything — it's managed in the background.</p>
+        </div>
+
+        <div class="faq-item">
           <strong>What is the app icon badge?</strong>
           <p>The badge on Mascotty's icon shows how many reminders are currently overdue. It updates automatically whenever you open the app or mark a reminder as taken. It clears to zero when nothing is overdue.</p>
         </div>
@@ -576,6 +923,11 @@
         <div class="faq-item">
           <strong>Can I track grooming and other care tasks?</strong>
           <p>Yes! When adding a medication, toggle the type to "Care Task". You can schedule grooming, nail trimming, ear cleaning, baths, flea treatments, and more. Free users can track up to 2 care tasks; Pro users have unlimited care tasks.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Does Mascotty support VoiceOver?</strong>
+          <p>Yes — Mascotty has full VoiceOver support across reminders, schedules, medication detail, paywall, and settings. Icons that are purely decorative are hidden from VoiceOver, and rows read as a single element with clear labels and selection state.</p>
         </div>
 
         <div class="faq-item">
@@ -600,7 +952,7 @@
 
         <div class="faq-item">
           <strong>Is my data private?</strong>
-          <p>Absolutely. All data is stored locally on your device only. Mascotty never uploads your data to servers or shares it with third parties. Your pets' health information stays completely private.</p>
+          <p>Absolutely. All data is stored locally on your device only. Mascotty never uploads your data to servers or shares it with third parties. No account is required, there are no analytics SDKs, and no crash reports are ever uploaded.</p>
         </div>
 
         <h3>Technical Support</h3>
@@ -633,9 +985,9 @@
 
         <div class="faq-item">
           <strong>Was ist der Unterschied zwischen Kostenlos und Pro?</strong>
-          <p><strong>Kostenlos:</strong> 1 Haustier, bis zu 2 Pflegeaufgaben, unbegrenzte Medikamente, Gewichtsverfolgung, Atemprotokoll, Gesundheitsunterlagen.</p>
-          <p><strong>Pro (Einmaliger Kauf):</strong> Unbegrenzte Haustiere, unbegrenzte Pflegeaufgaben, Tierarztbesuch-Verfolgung, Tiersitter-Berichte, Einnahmequote, CSV-Export.</p>
-          <p>Keine Abonnements! Einmal zahlen und für immer besitzen.</p>
+          <p><strong>Kostenlos:</strong> 1 Haustier, bis zu 2 Pflegeaufgaben, unbegrenzte Medikamente, Gewichtsverfolgung, Gesundheitsunterlagen.</p>
+          <p><strong>Pro (Einmaliger Kauf — 9,99 $):</strong> Unbegrenzte Haustiere, unbegrenzte Pflegeaufgaben, Atemprotokoll, Tierarztbesuche, Tiersitter-Berichte, Einnahmequote, CSV-Export.</p>
+          <p>Keine Abonnements, keine Werbung. Einmal zahlen und für immer besitzen.</p>
         </div>
 
         <div class="faq-item">
@@ -644,8 +996,18 @@
         </div>
 
         <div class="faq-item">
+          <strong>Was passiert, wenn ich viele wiederkehrende Medikamente habe?</strong>
+          <p>iOS erlaubt jeder App maximal 64 geplante Benachrichtigungen. Mascotty hält Sie automatisch sicher unter diesem Limit, indem die wichtigsten und zeitlich nächsten Erinnerungen erhalten bleiben — nichts fällt stillschweigend aus.</p>
+        </div>
+
+        <div class="faq-item">
           <strong>Was bedeutet das Badge-Symbol auf dem App-Icon?</strong>
           <p>Das Badge zeigt, wie viele Erinnerungen aktuell überfällig sind. Es aktualisiert sich automatisch beim Öffnen der App oder nach dem Bestätigen einer Erinnerung.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Unterstützt Mascotty VoiceOver?</strong>
+          <p>Ja — Mascotty unterstützt VoiceOver vollständig in Erinnerungen, Zeitplänen, Medikamentendetails, Paywall und Einstellungen. Rein dekorative Symbole werden für VoiceOver ausgeblendet.</p>
         </div>
 
         <div class="faq-item">
@@ -655,7 +1017,7 @@
 
         <div class="faq-item">
           <strong>Sind meine Daten privat?</strong>
-          <p>Absolut! Alle Ihre Daten werden nur lokal auf Ihrem Gerät gespeichert. Mascotty lädt Ihre Daten niemals auf Server hoch oder teilt sie mit Dritten.</p>
+          <p>Absolut! Alle Ihre Daten werden nur lokal auf Ihrem Gerät gespeichert. Mascotty lädt Ihre Daten niemals auf Server hoch. Es ist kein Konto erforderlich, es gibt keine Analyse-SDKs und es werden keine Absturzberichte hochgeladen.</p>
         </div>
       </div>
 
@@ -672,9 +1034,9 @@
 
         <div class="faq-item">
           <strong>¿Cuál es la diferencia entre Gratis y Pro?</strong>
-          <p><strong>Gratis:</strong> 1 mascota, hasta 2 tareas de cuidado, medicamentos ilimitados, seguimiento de peso, registro de respiración, registros de salud.</p>
-          <p><strong>Pro (Compra Única):</strong> Mascotas ilimitadas, tareas ilimitadas, visitas al veterinario, informes para cuidadores, adherencia y exportación CSV.</p>
-          <p>¡Sin suscripciones! Paga una vez y posee para siempre.</p>
+          <p><strong>Gratis:</strong> 1 mascota, hasta 2 tareas de cuidado, medicamentos ilimitados, seguimiento de peso, registros de salud.</p>
+          <p><strong>Pro (Compra Única — 9,99 $):</strong> Mascotas ilimitadas, tareas ilimitadas, registro de respiración, visitas al veterinario, informes para cuidadores, adherencia y exportación CSV.</p>
+          <p>¡Sin suscripciones, sin anuncios! Paga una vez y posee para siempre.</p>
         </div>
 
         <div class="faq-item">
@@ -683,8 +1045,18 @@
         </div>
 
         <div class="faq-item">
+          <strong>¿Qué pasa si tengo muchos medicamentos recurrentes?</strong>
+          <p>iOS limita a cualquier app a 64 notificaciones programadas a la vez. Mascotty se mantiene automáticamente por debajo de ese límite, conservando los recordatorios más importantes y cercanos — nada falla en silencio.</p>
+        </div>
+
+        <div class="faq-item">
           <strong>¿Qué significa el badge en el icono de la app?</strong>
           <p>El badge muestra cuántos recordatorios están vencidos en este momento. Se actualiza automáticamente al abrir la app o al marcar un recordatorio.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>¿Mascotty es compatible con VoiceOver?</strong>
+          <p>Sí — Mascotty tiene soporte completo de VoiceOver en recordatorios, calendario, detalles de medicación, paywall y ajustes. Los iconos puramente decorativos están ocultos para VoiceOver.</p>
         </div>
 
         <div class="faq-item">
@@ -694,7 +1066,7 @@
 
         <div class="faq-item">
           <strong>¿Son privados mis datos?</strong>
-          <p>¡Absolutamente! Todos tus datos se almacenan localmente solo en tu dispositivo. Mascotty nunca sube tus datos a servidores ni los comparte con terceros.</p>
+          <p>¡Absolutamente! Todos tus datos se almacenan localmente solo en tu dispositivo. Mascotty nunca sube tus datos a servidores. No se requiere cuenta, no hay SDKs de analíticas y nunca se suben informes de fallos.</p>
         </div>
       </div>
 
@@ -711,9 +1083,9 @@
 
         <div class="faq-item">
           <strong>Quelle est la différence entre Gratuit et Pro?</strong>
-          <p><strong>Gratuit:</strong> 1 animal, jusqu'à 2 tâches de soins, médicaments illimités, suivi du poids, journal de respiration, dossiers de santé.</p>
-          <p><strong>Pro (Achat Unique):</strong> Animaux illimités, tâches illimitées, visites vétérinaires, rapports pet-sitter, observance et export CSV.</p>
-          <p>Pas d'abonnements! Payez une fois et possédez pour toujours.</p>
+          <p><strong>Gratuit:</strong> 1 animal, jusqu'à 2 tâches de soins, médicaments illimités, suivi du poids, dossiers de santé.</p>
+          <p><strong>Pro (Achat Unique — 9,99 $):</strong> Animaux illimités, tâches illimitées, journal de respiration, visites vétérinaires, rapports pet-sitter, observance et export CSV.</p>
+          <p>Pas d'abonnements, pas de publicités! Payez une fois et possédez pour toujours.</p>
         </div>
 
         <div class="faq-item">
@@ -722,8 +1094,18 @@
         </div>
 
         <div class="faq-item">
+          <strong>Que se passe-t-il avec beaucoup de traitements récurrents?</strong>
+          <p>iOS limite chaque app à 64 notifications planifiées simultanément. Mascotty reste automatiquement sous cette limite en conservant les rappels les plus importants et les plus proches — rien n'échoue en silence.</p>
+        </div>
+
+        <div class="faq-item">
           <strong>À quoi correspond le badge sur l'icône de l'app?</strong>
           <p>Le badge indique combien de rappels sont actuellement en retard. Il se met à jour automatiquement à l'ouverture de l'app ou après avoir marqué un rappel.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Mascotty prend-il en charge VoiceOver?</strong>
+          <p>Oui — Mascotty prend entièrement en charge VoiceOver dans les rappels, le planning, le détail des médicaments, la paywall et les réglages. Les icônes purement décoratives sont masquées pour VoiceOver.</p>
         </div>
 
         <div class="faq-item">
@@ -733,7 +1115,154 @@
 
         <div class="faq-item">
           <strong>Mes données sont-elles privées?</strong>
-          <p>Absolument! Toutes vos données sont stockées localement uniquement sur votre appareil. Mascotty ne télécharge jamais vos données sur des serveurs ni ne les partage avec des tiers.</p>
+          <p>Absolument! Toutes vos données sont stockées localement uniquement sur votre appareil. Mascotty ne télécharge jamais vos données sur des serveurs. Aucun compte requis, aucun SDK d'analyse, et aucun rapport de plantage n'est envoyé.</p>
+        </div>
+      </div>
+
+      <!-- ── Italian Support ── -->
+      <div class="lang lang-it hidden">
+        <h2>Supporto e Aiuto</h2>
+        <p>Serve aiuto con Mascotty? Siamo qui per assisterti.</p>
+
+        <h3>Contatto</h3>
+        <p>Email: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
+        <p>Rispondiamo di solito entro 24–48 ore.</p>
+
+        <h3>Domande Frequenti</h3>
+
+        <div class="faq-item">
+          <strong>Qual è la differenza tra Gratis e Pro?</strong>
+          <p><strong>Gratis:</strong> 1 animale, fino a 2 attività di cura, farmaci illimitati, tracciamento del peso, dati sanitari.</p>
+          <p><strong>Pro (Acquisto Unico — 9,99 $):</strong> Animali e attività illimitati, diario del respiro, visite veterinarie, report per pet sitter, aderenza ed esportazione CSV.</p>
+          <p>Nessun abbonamento, nessuna pubblicità! Paga una volta, è tuo per sempre.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Come segno un farmaco come assunto?</strong>
+          <p>Vai alla scheda Promemoria e scorri a destra per segnarlo come assunto con un gesto, oppure tocca "Segna come Assunto".</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Cosa succede con molti farmaci ricorrenti?</strong>
+          <p>iOS limita ogni app a 64 notifiche pianificate contemporaneamente. Mascotty resta automaticamente sotto questo limite, preservando i promemoria più importanti e più vicini — niente scompare in silenzio.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Cosa significa il badge sull'icona dell'app?</strong>
+          <p>Il badge mostra quanti promemoria sono in ritardo in questo momento. Si aggiorna automaticamente all'apertura dell'app o dopo aver segnato un promemoria.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Mascotty supporta VoiceOver?</strong>
+          <p>Sì — Mascotty supporta completamente VoiceOver in promemoria, calendario, dettagli dei farmaci, paywall e impostazioni. Le icone puramente decorative sono nascoste a VoiceOver.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Come funziona il diario del respiro?</strong>
+          <p>Il diario del respiro è una funzione Pro. Apri la sezione Diario del Respiro nella pagina di dettaglio del tuo animale. Il grafico mostra gli intervalli normali per specie. Puoi anche esportare il diario in CSV.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>I miei dati sono privati?</strong>
+          <p>Assolutamente! Tutti i tuoi dati sono memorizzati solo localmente sul tuo dispositivo. Mascotty non carica mai i tuoi dati su server. Nessun account richiesto, nessun SDK di analisi e nessun report di crash inviato.</p>
+        </div>
+      </div>
+
+      <!-- ── Japanese Support ── -->
+      <div class="lang lang-ja hidden">
+        <h2>サポートとヘルプ</h2>
+        <p>Mascottyについてお困りですか?喜んでお手伝いします。</p>
+
+        <h3>お問い合わせ</h3>
+        <p>メール: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
+        <p>通常24〜48時間以内にご返信いたします。</p>
+
+        <h3>よくあるご質問</h3>
+
+        <div class="faq-item">
+          <strong>無料版とProの違いは?</strong>
+          <p><strong>無料:</strong> ペット1匹、ケアタスク2つまで、投薬無制限、体重記録、健康記録。</p>
+          <p><strong>Pro(買い切り — 9.99ドル):</strong> ペット・ケアタスク無制限、呼吸ログ、通院記録、ペットシッター用レポート、服薬率、CSV書き出し。</p>
+          <p>サブスクなし、広告なし。一度の購入でずっと使えます。</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>薬を「服用済み」にするには?</strong>
+          <p>リマインダー画面で、対象を右にスワイプすると一瞬で「服用済み」になります。ボタンから操作することもできます。</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>繰り返し投薬がたくさんある場合は?</strong>
+          <p>iOSはアプリごとに予約通知を最大64件に制限しています。Mascottyは重要度が高く時間的に近いリマインダーを優先して、自動的にこの上限の下に保ちます。何かが静かに通知されないということはありません。</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>アプリアイコンのバッジは何?</strong>
+          <p>バッジは現在「期限切れ」のリマインダーの件数を表示します。アプリを開くか、リマインダーを処理すると自動的に更新されます。</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>VoiceOverに対応していますか?</strong>
+          <p>はい — Mascottyはリマインダー、スケジュール、投薬詳細、購入画面、設定すべてでVoiceOverに完全対応しています。装飾目的だけのアイコンはVoiceOverから非表示になっています。</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>呼吸ログはどう使うの?</strong>
+          <p>呼吸ログはPro機能です。ペット詳細の「呼吸ログ」を開き、安静時の呼吸数を入力します。グラフには種別の正常範囲が表示され、CSV書き出しも可能です。</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>データは安全ですか?</strong>
+          <p>はい!すべてのデータは端末内にのみ保存されます。Mascottyがサーバーにアップロードすることはありません。アカウント作成は不要、解析SDKもなし、クラッシュレポートの送信もありません。</p>
+        </div>
+      </div>
+
+      <!-- ── Korean Support ── -->
+      <div class="lang lang-ko hidden">
+        <h2>지원 및 도움말</h2>
+        <p>Mascotty에 대해 도움이 필요하신가요? 기꺼이 도와드리겠습니다.</p>
+
+        <h3>문의</h3>
+        <p>이메일: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
+        <p>보통 24~48시간 이내에 답변드립니다.</p>
+
+        <h3>자주 묻는 질문</h3>
+
+        <div class="faq-item">
+          <strong>무료와 Pro의 차이는?</strong>
+          <p><strong>무료:</strong> 반려동물 1마리, 케어 작업 최대 2개, 투약 무제한, 체중 기록, 건강 기록.</p>
+          <p><strong>Pro (일회성 구매 — 9.99달러):</strong> 반려동물·케어 작업 무제한, 호흡 로그, 병원 방문 기록, 펫시터용 리포트, 복약률, CSV 내보내기.</p>
+          <p>구독 없음, 광고 없음. 한 번만 결제하고 평생 사용하세요.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>약을 "복용 완료"로 표시하려면?</strong>
+          <p>알림 탭에서 오른쪽으로 쓸어 넘기면 한 번의 동작으로 "복용 완료"가 됩니다. 또는 "복용 완료" 버튼을 눌러도 됩니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>반복 투약이 많으면 어떻게 되나요?</strong>
+          <p>iOS는 앱마다 예약 알림을 최대 64개로 제한합니다. Mascotty는 중요하고 시간이 가까운 알림을 우선으로 유지하면서 자동으로 이 한도 아래로 관리합니다. 아무 것도 조용히 실패하지 않습니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>앱 아이콘의 뱃지는 무엇인가요?</strong>
+          <p>뱃지는 현재 기한이 지난 알림의 개수를 표시합니다. 앱을 열거나 알림을 처리하면 자동으로 갱신됩니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Mascotty가 VoiceOver를 지원하나요?</strong>
+          <p>네 — Mascotty는 알림, 일정, 약 상세, 결제 화면, 설정 등 모든 화면에서 VoiceOver를 완전히 지원합니다. 장식 용도의 아이콘은 VoiceOver에서 숨겨집니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>호흡 로그는 어떻게 사용하나요?</strong>
+          <p>호흡 로그는 Pro 기능입니다. 반려동물 상세 페이지에서 "호흡 로그"를 열어 안정 시 호흡수를 기록하세요. 그래프에는 종별 정상 범위가 표시되며 CSV로도 내보낼 수 있습니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>데이터는 안전한가요?</strong>
+          <p>네! 모든 데이터는 기기 내에만 저장됩니다. Mascotty는 절대로 서버에 데이터를 업로드하지 않습니다. 계정 생성 불필요, 분석 SDK 없음, 크래시 리포트 전송 없음.</p>
         </div>
       </div>
     </div>
@@ -746,6 +1275,7 @@
         <p>Mascotty is designed with your privacy as the top priority. We believe your pets' health information should stay completely private.</p>
         <h3>No Data Collection</h3>
         <p>Mascotty does not collect, transmit, or share any personal data or pet health information. All tracking data stays exclusively on your device.</p>
+        <p><strong>No account required. No analytics SDKs. No crash reports uploaded. No third-party tracking of any kind.</strong></p>
         <h3>Contact</h3>
         <p>If you have questions about privacy, contact us at: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
         <p><em>Last updated: April 2026</em></p>
@@ -756,6 +1286,7 @@
         <p>Mascotty wurde mit Ihrer Privatsphäre als oberste Priorität entwickelt. Wir glauben, dass die Gesundheitsinformationen Ihrer Haustiere vollständig privat bleiben sollten.</p>
         <h3>Keine Datenerfassung</h3>
         <p>Mascotty erfasst, überträgt oder teilt keine persönlichen Daten oder Gesundheitsinformationen über Haustiere. Alle Tracking-Daten verbleiben ausschließlich auf Ihrem Gerät.</p>
+        <p><strong>Kein Konto erforderlich. Keine Analyse-SDKs. Keine Absturzberichte. Kein Tracking durch Dritte.</strong></p>
         <h3>Kontakt</h3>
         <p>Bei Fragen zum Datenschutz: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
         <p><em>Zuletzt aktualisiert: April 2026</em></p>
@@ -766,6 +1297,7 @@
         <p>Mascotty está diseñado con tu privacidad como máxima prioridad. Todos los datos se almacenan exclusivamente en tu dispositivo.</p>
         <h3>Sin Recopilación de Datos</h3>
         <p>Mascotty no recopila, transmite ni comparte ningún dato personal ni información de salud de mascotas.</p>
+        <p><strong>Sin cuenta. Sin SDKs de analíticas. Sin informes de fallos. Sin seguimiento de terceros.</strong></p>
         <h3>Contacto</h3>
         <p>Para preguntas sobre privacidad: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
         <p><em>Última actualización: abril 2026</em></p>
@@ -776,9 +1308,43 @@
         <p>Mascotty a été conçu avec votre vie privée comme priorité absolue. Toutes les données restent exclusivement sur votre appareil.</p>
         <h3>Aucune Collecte de Données</h3>
         <p>Mascotty ne collecte, ne transmet ni ne partage aucune donnée personnelle ou information de santé animale.</p>
+        <p><strong>Aucun compte requis. Aucun SDK d'analyse. Aucun rapport de plantage envoyé. Aucun suivi tiers.</strong></p>
         <h3>Contact</h3>
         <p>Pour toute question sur la confidentialité: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
         <p><em>Dernière mise à jour: avril 2026</em></p>
+      </div>
+      <div class="lang lang-it hidden">
+        <h2>Informativa sulla Privacy</h2>
+        <h3>Privacy Completa per Progettazione</h3>
+        <p>Mascotty è progettato con la tua privacy come priorità massima. Tutti i dati sono conservati esclusivamente sul tuo dispositivo.</p>
+        <h3>Nessuna Raccolta Dati</h3>
+        <p>Mascotty non raccoglie, trasmette o condivide alcun dato personale o informazione sanitaria sugli animali.</p>
+        <p><strong>Nessun account richiesto. Nessun SDK di analisi. Nessun report di crash. Nessun tracciamento di terzi.</strong></p>
+        <h3>Contatto</h3>
+        <p>Per domande sulla privacy: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
+        <p><em>Ultimo aggiornamento: aprile 2026</em></p>
+      </div>
+      <div class="lang lang-ja hidden">
+        <h2>プライバシーポリシー</h2>
+        <h3>設計段階からの完全なプライバシー</h3>
+        <p>Mascottyはプライバシーを最優先に設計されています。すべてのデータは端末内にのみ保存されます。</p>
+        <h3>データの収集なし</h3>
+        <p>Mascottyは個人データやペットの健康情報を収集・送信・共有することはありません。</p>
+        <p><strong>アカウント不要。解析SDKなし。クラッシュレポートの送信なし。サードパーティによる追跡なし。</strong></p>
+        <h3>お問い合わせ</h3>
+        <p>プライバシーに関するご質問は: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
+        <p><em>最終更新: 2026年4月</em></p>
+      </div>
+      <div class="lang lang-ko hidden">
+        <h2>개인정보 처리방침</h2>
+        <h3>설계 단계부터 완벽한 프라이버시</h3>
+        <p>Mascotty는 사용자의 프라이버시를 최우선으로 설계되었습니다. 모든 데이터는 기기 내에만 저장됩니다.</p>
+        <h3>데이터 수집 없음</h3>
+        <p>Mascotty는 개인 데이터나 반려동물 건강 정보를 수집, 전송, 공유하지 않습니다.</p>
+        <p><strong>계정 불필요. 분석 SDK 없음. 크래시 리포트 전송 없음. 제3자 추적 없음.</strong></p>
+        <h3>문의</h3>
+        <p>프라이버시에 대한 문의: <a href="mailto:bandurria.apps@gmail.com">bandurria.apps@gmail.com</a></p>
+        <p><em>최종 업데이트: 2026년 4월</em></p>
       </div>
     </div>
 
